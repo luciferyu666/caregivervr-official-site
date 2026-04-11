@@ -1,0 +1,60 @@
+---
+import type { OgImageSpec } from '../../data/brand';
+import { siteConfig } from '../../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  images?: OgImageSpec[];
+  canonical?: string;
+  type?: string;
+}
+
+const {
+  title,
+  description,
+  image = siteConfig.defaultOgImage,
+  images,
+  canonical,
+  type = 'website',
+} = Astro.props as Props;
+
+const site = new URL(siteConfig.siteUrl);
+const resolvedCanonical = canonical ? new URL(canonical, site).toString() : undefined;
+const imageSet =
+  images && images.length > 0
+    ? images
+    : [{ url: image, width: 1200, height: 630, alt: `${title} 社群分享圖` }];
+
+const resolvedImages = imageSet.map((item) => ({
+  ...item,
+  resolvedUrl: new URL(item.url, site).toString(),
+}));
+
+const twitterImage =
+  resolvedImages.find((item) => item.width === 1200 && item.height === 630) ?? resolvedImages[0];
+---
+
+{resolvedCanonical && <link rel="canonical" href={resolvedCanonical} />}
+<meta property="og:type" content={type} />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:site_name" content={siteConfig.siteName} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+{resolvedCanonical && <meta property="og:url" content={resolvedCanonical} />}
+{
+  resolvedImages.map((item) => (
+    <>
+      <meta property="og:image" content={item.resolvedUrl} />
+      <meta property="og:image:width" content={String(item.width)} />
+      <meta property="og:image:height" content={String(item.height)} />
+      <meta property="og:image:alt" content={item.alt} />
+    </>
+  ))
+}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={twitterImage.resolvedUrl} />
+<meta name="twitter:image:alt" content={twitterImage.alt} />

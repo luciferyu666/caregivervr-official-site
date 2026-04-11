@@ -1,0 +1,54 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">CareMirror 產品頁 OG 圖</title>
+  <desc id="desc">CareMirror 照護之鏡產品頁社群分享圖，強調訓練流程、判定追蹤與 After Action Review 機制。</desc>
+  <rect width="1200" height="630" fill="#05111F"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="956" cy="114" r="180" fill="url(#glowA)"/>
+  <circle cx="298" cy="16" r="220" fill="url(#glowB)"/>
+  <rect x="64" y="64" width="1072" height="502" rx="38" fill="rgba(8, 18, 33, 0.9)" stroke="rgba(207,228,255,0.14)"/>
+  <text x="112" y="132" fill="#93EFF5" font-size="18" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">PRODUCT OVERVIEW</text>
+  <text x="112" y="210" fill="#F5F9FF" font-size="64" font-weight="700" font-family="'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">CareMirror</text>
+  <text x="112" y="256" fill="#CFE4FF" font-size="28" font-weight="600" font-family="'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">照護之鏡</text>
+  <text x="112" y="302" fill="#9DB1C7" font-size="24" font-weight="500" font-family="'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">流程判定、錯誤追蹤、AAR 回顧與可重複演練，組成可正式介紹的產品敘事。</text>
+  <g>
+    <rect x="112" y="340" width="184" height="54" rx="27" fill="rgba(86,168,255,0.18)" stroke="rgba(159,208,255,0.24)"/>
+    <text x="204" y="374" text-anchor="middle" fill="#F5F9FF" font-size="19" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">流程判定</text>
+    <rect x="314" y="340" width="184" height="54" rx="27" fill="rgba(69,199,214,0.16)" stroke="rgba(147,239,245,0.22)"/>
+    <text x="406" y="374" text-anchor="middle" fill="#F5F9FF" font-size="19" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">評分追蹤</text>
+    <rect x="516" y="340" width="212" height="54" rx="27" fill="rgba(255,255,255,0.05)" stroke="rgba(207,228,255,0.12)"/>
+    <text x="622" y="374" text-anchor="middle" fill="#F5F9FF" font-size="19" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">可重複演練</text>
+  </g>
+  <g>
+    <rect x="744" y="132" width="300" height="172" rx="30" fill="rgba(255,255,255,0.04)" stroke="rgba(207,228,255,0.1)"/>
+    <rect x="768" y="156" width="252" height="88" rx="24" fill="rgba(11,23,39,0.92)" stroke="rgba(86,168,255,0.2)"/>
+    <path d="M798 196H984" stroke="#CFE4FF" stroke-width="8" stroke-linecap="round"/>
+    <path d="M798 226H940" stroke="#45C7D6" stroke-width="8" stroke-linecap="round"/>
+    <text x="768" y="280" fill="#D7E4F3" font-size="16" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">訓練情境與模組導引</text>
+  </g>
+  <g>
+    <rect x="712" y="330" width="332" height="164" rx="30" fill="rgba(255,255,255,0.04)" stroke="rgba(207,228,255,0.1)"/>
+    <path d="M760 382C760 366.536 772.536 354 788 354H968C983.464 354 996 366.536 996 382V442C996 457.464 983.464 470 968 470H788C772.536 470 760 457.464 760 442V382Z" fill="rgba(11,23,39,0.92)" stroke="rgba(69,199,214,0.2)"/>
+    <circle cx="806" cy="412" r="14" fill="#56A8FF"/>
+    <circle cx="848" cy="412" r="14" fill="#45C7D6"/>
+    <circle cx="890" cy="412" r="14" fill="#93EFF5"/>
+    <path d="M930 396H964" stroke="#CFE4FF" stroke-width="6" stroke-linecap="round"/>
+    <path d="M930 420H980" stroke="#56A8FF" stroke-width="6" stroke-linecap="round"/>
+    <path d="M930 444H950" stroke="#45C7D6" stroke-width="6" stroke-linecap="round"/>
+    <text x="760" y="520" fill="#D7E4F3" font-size="16" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">評分儀表板與 AAR 回顧</text>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="164" y1="42" x2="1028" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07121E"/>
+      <stop offset="0.58" stop-color="#0A1830"/>
+      <stop offset="1" stop-color="#030916"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(956 114) rotate(90) scale(180)">
+      <stop stop-color="#45C7D6" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#45C7D6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(298 16) rotate(90) scale(220)">
+      <stop stop-color="#56A8FF" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#56A8FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionTitle from '../components/common/SectionTitle.astro';
+import BrandLogo from '../components/common/BrandLogo.astro';
+import YouTubeEmbed from '../components/common/YouTubeEmbed.astro';
+import { siteConfig } from '../data/site';
+import heroMain from '../assets/product/hero-main.svg';
+import moduleBedBath from '../assets/product/module-bed-bath.svg';
+import modulePerinealCare from '../assets/product/module-perineal-care.svg';
+import dashboardScore from '../assets/product/dashboard-score.svg';
+
+const modules = [
+  '情境導引與步驟提示',
+  '互動操作判定與錯誤分類',
+  '教學證據 capture 與畫面可讀性控制',
+  'After Action Review 結算與回顧',
+];
+
+const roadmap = [
+  '擴充不同照護情境與題組',
+  '建立更多教學角色與難度層級',
+  '支援更多分析與報表輸出需求',
+];
+---
+
+<BaseLayout
+  title="產品介紹｜CareMirror 照護之鏡"
+  description="CareMirror 照護之鏡聚焦女性照護員 VR 訓練系統的流程教學、判定邏輯、錯誤追蹤與 AAR 回顧，目標是成為可正式使用的照護教學產品。"
+  ogImage={siteConfig.socialImageProduct}
+  ogImages={siteConfig.socialImages.product}
+  canonical="/product">
+  <section class="section-space">
+    <div class="page-shell space-y-12">
+      <div class="panel grid gap-8 overflow-hidden p-8 lg:grid-cols-[1fr_1fr] lg:p-10">
+        <div>
+          <span class="section-kicker">產品介紹</span>
+          <div class="mt-5">
+            <BrandLogo variant="wordmark" class="h-8 w-auto" />
+          </div>
+          <h1 class="mt-6 text-4xl font-semibold text-white sm:text-5xl">CareMirror 產品概覽</h1>
+          <p class="mt-5 text-base leading-8 text-muted">
+            CareMirror 照護之鏡以高敏感度照護情境作為起點，透過步驟拆解、互動判定與可視化回顧，讓 VR 訓練從體驗升級為正式教學工具。
+          </p>
+          <div class="mt-8 grid gap-4 sm:grid-cols-3">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-muted">
+              <p class="font-semibold text-white">流程判定</p>
+              <p class="mt-2 leading-7">把 SOP 拆成可判斷的步驟與條件。</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-muted">
+              <p class="font-semibold text-white">評分追蹤</p>
+              <p class="mt-2 leading-7">保留錯誤類型與操作結果，方便教學者回顧。</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-muted">
+              <p class="font-semibold text-white">可重複演練</p>
+              <p class="mt-2 leading-7">同一題組能重複進入，建立一致訓練流程。</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-[1.75rem] border border-brand-100/10 bg-slate-950/70 p-3">
+          <img
+            src={heroMain.src}
+            alt="CareMirror 產品主視覺"
+            class="h-auto w-full rounded-[1.2rem] border border-white/10 bg-slate-950/60 object-cover" />
+        </div>
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <article class="panel p-8">
+          <h3 class="text-2xl font-semibold text-white">核心模組</h3>
+          <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+            {modules.map((item) => <li class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-muted">{item}</li>)}
+          </ul>
+          <p class="mt-6 text-sm leading-7 text-muted">
+            目前硬體平台以 Meta Quest 3 為主，內容採靜態部署優先的官網說明架構，方便延伸到產品簡報、Demo 與合作提案。
+          </p>
+        </article>
+
+        <article class="panel p-8">
+          <h3 class="text-2xl font-semibold text-white">訓練流程與評分概念</h3>
+          <div class="mt-6 space-y-4 text-sm leading-7 text-muted">
+            <p>訓練流程由步驟導引、正誤判定、錯誤提示與 AAR 結算組成，讓學員知道不只是做完，更要知道哪裡做對、哪裡需要重練。</p>
+            <p>系統可記錄錯誤類型、判定條件與步驟結果，讓教學者具備客觀回顧基礎。</p>
+            <p>官網第一版以產品邏輯、模組概念與應用價值為主，後續可擴充更多實機畫面與案例素材。</p>
+          </div>
+        </article>
+      </div>
+
+      <section class="grid gap-6 lg:grid-cols-3">
+        <article class="panel overflow-hidden p-5">
+          <img src={moduleBedBath.src} alt="床邊清潔模組預覽圖" class="w-full rounded-2xl border border-white/10 bg-slate-950/50" />
+          <h3 class="mt-5 text-xl font-semibold text-white">模組一：床邊清潔情境</h3>
+          <p class="mt-3 text-sm leading-7 text-muted">將說明、操作、錯誤判定與回顧整合進單一訓練流程。</p>
+        </article>
+        <article class="panel overflow-hidden p-5">
+          <img src={modulePerinealCare.src} alt="高敏感度照護模組預覽圖" class="w-full rounded-2xl border border-white/10 bg-slate-950/50" />
+          <h3 class="mt-5 text-xl font-semibold text-white">模組二：高敏感度照護流程</h3>
+          <p class="mt-3 text-sm leading-7 text-muted">用更高的流程要求驗證教學步驟、動線與錯誤分類機制。</p>
+        </article>
+        <article class="panel overflow-hidden p-5">
+          <img src={dashboardScore.src} alt="評分與報表儀表板預覽圖" class="w-full rounded-2xl border border-white/10 bg-slate-950/50" />
+          <h3 class="mt-5 text-xl font-semibold text-white">模組三：評分與 AAR 回顧</h3>
+          <p class="mt-3 text-sm leading-7 text-muted">將教學結果整理成可檢視、可說明、可延伸的報表摘要。</p>
+        </article>
+      </section>
+
+      <section id="product-videos" class="panel p-8 lg:p-10">
+        <SectionTitle
+          eyebrow="產品展示影片"
+          title="用實際影片補足產品敘事，讓展示內容更容易被理解"
+          description="產品頁同步嵌入系統展示與流程操作影片，讓合作對象在閱讀模組與功能說明時，也能直接對照畫面與互動節點。" />
+        <div class="mt-10 grid gap-6 lg:grid-cols-2">
+          {
+            siteConfig.demoVideos.map((video, index) => (
+              <YouTubeEmbed
+                videoId={video.videoId}
+                title={video.title}
+                description={video.description}
+                watchUrl={video.watchUrl}
+                eager={index === 0} />
+            ))
+          }
+        </div>
+      </section>
+
+      <article class="panel p-8">
+        <h3 class="text-2xl font-semibold text-white">未來可擴充方向</h3>
+        <div class="mt-6 grid gap-4 md:grid-cols-3">
+          {roadmap.map((item) => <div class="rounded-2xl border border-mint-400/10 bg-mint-500/8 p-5 text-sm leading-7 text-slate-100">{item}</div>)}
+        </div>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

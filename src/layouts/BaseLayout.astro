@@ -1,0 +1,59 @@
+---
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+import SocialMeta from '../components/common/SocialMeta.astro';
+import type { OgImageSpec } from '../data/brand';
+import { siteConfig } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogImages?: OgImageSpec[];
+  canonical?: string;
+}
+
+const {
+  title = siteConfig.siteTitleDefault,
+  description = siteConfig.siteDescriptionDefault,
+  ogImage = siteConfig.defaultOgImage,
+  ogImages = siteConfig.defaultSocialImages,
+  canonical,
+} = Astro.props as Props;
+
+const pageTitle =
+  title === siteConfig.siteTitleDefault || title.includes(siteConfig.brandName)
+    ? title
+    : `${title}｜${siteConfig.brandLockup}`;
+const resolvedCanonical = canonical ?? Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={siteConfig.faviconPath} />
+    <SocialMeta
+      title={pageTitle}
+      description={description}
+      image={ogImage}
+      images={ogImages}
+      canonical={resolvedCanonical}
+      type="website" />
+  </head>
+  <body>
+    <div class="relative min-h-screen overflow-x-hidden">
+      <div class="pointer-events-none absolute inset-0 grid-mesh opacity-20"></div>
+      <Header currentPath={Astro.url.pathname} />
+      <main class="relative z-10">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

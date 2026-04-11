@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionTitle from '../components/common/SectionTitle.astro';
+import { siteConfig } from '../data/site';
+
+const useCases = [
+  '醫院護理教育',
+  '住院整合照護',
+  '出院準備銜接長照',
+  '長照機構新人訓練',
+  '教學單位情境演練',
+];
+---
+
+<BaseLayout
+  title="應用場景｜CareMirror 照護之鏡"
+  description="CareMirror 照護之鏡可應用於醫院護理教育、住院整合照護、出院準備銜接長照、長照機構新人訓練與教學單位情境演練。"
+  ogImage={siteConfig.defaultOgImage}
+  ogImages={siteConfig.socialImages.default}
+  canonical="/use-cases">
+  <section class="section-space">
+    <div class="page-shell">
+      <SectionTitle
+        eyebrow="應用場景"
+        title="從醫院到長照機構，讓訓練情境更一致、可重複、可回顧"
+        description="第一版官網聚焦在照護訓練最需要標準化的幾個現場，方便對外溝通導入價值與合作方向。" />
+      <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {
+          useCases.map((item, index) => (
+            <article class="panel p-7">
+              <p class="text-sm uppercase tracking-[0.2em] text-brand-100">0{index + 1}</p>
+              <h3 class="mt-4 text-2xl font-semibold text-white">{item}</h3>
+              <p class="mt-4 text-sm leading-7 text-muted">
+                適合用於教學示範、技能前置訓練、流程對齊與後續回顧，減少僅靠口述示範所造成的差異。
+              </p>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="mt-6 panel grid gap-6 p-8 lg:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <span class="section-kicker">院方說明</span>
+          <h3 class="mt-5 text-2xl font-semibold text-white">白皮書頁已整理目前適合的展示用途與尚未主張的部署範圍</h3>
+          <p class="mt-4 text-base leading-8 text-muted">
+            對外說明時，最重要的是把可展示、可導覽與尚待裝置端驗證的範圍講清楚。白皮書頁已把這些邊界整理成可直接閱讀的版本。
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-4">
+          <a class="btn-primary" href="/white-paper#validation">查看驗證範圍</a>
+          <a class="btn-secondary" href="/contact#demo">安排展示</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,62 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">CareMirror 首頁 OG 圖</title>
+  <desc id="desc">CareMirror 照護之鏡首頁社群分享圖，呈現品牌主標、中文品牌與首頁展示模組。</desc>
+  <rect width="1200" height="630" fill="#05111F"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="944" cy="88" r="190" fill="url(#glowA)"/>
+  <circle cx="224" cy="24" r="210" fill="url(#glowB)"/>
+  <rect x="56" y="56" width="1088" height="518" rx="38" fill="rgba(9, 20, 36, 0.88)" stroke="rgba(207,228,255,0.14)"/>
+  <text x="104" y="128" fill="#93EFF5" font-size="18" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">OFFICIAL WEBSITE</text>
+  <text x="104" y="210" fill="#F5F9FF" font-size="68" font-weight="700" font-family="'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">CareMirror</text>
+  <text x="104" y="266" fill="#CFE4FF" font-size="30" font-weight="600" font-family="'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">照護之鏡</text>
+  <text x="104" y="332" fill="#9DB1C7" font-size="24" font-weight="500" font-family="'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">將女性照護訓練帶入可驗證、可重複、可擴充的 VR 教學流程。</text>
+  <g>
+    <rect x="104" y="394" width="160" height="48" rx="24" fill="rgba(86, 168, 255, 0.18)"/>
+    <text x="184" y="425" text-anchor="middle" fill="#F5F9FF" font-size="18" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">查看產品</text>
+    <rect x="278" y="394" width="176" height="48" rx="24" fill="rgba(255,255,255,0.05)" stroke="rgba(207,228,255,0.1)"/>
+    <text x="366" y="425" text-anchor="middle" fill="#D7E4F3" font-size="18" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">預約 Demo</text>
+  </g>
+  <g>
+    <rect x="692" y="128" width="360" height="220" rx="30" fill="rgba(255,255,255,0.05)" stroke="rgba(207,228,255,0.1)"/>
+    <rect x="714" y="150" width="316" height="132" rx="22" fill="url(#panel)"/>
+    <path d="M742 214H1004" stroke="#CFE4FF" stroke-width="8" stroke-linecap="round"/>
+    <path d="M742 242H972" stroke="#45C7D6" stroke-width="8" stroke-linecap="round" opacity="0.92"/>
+    <rect x="742" y="304" width="96" height="18" rx="9" fill="#56A8FF" opacity="0.8"/>
+    <rect x="854" y="304" width="76" height="18" rx="9" fill="#93EFF5" opacity="0.7"/>
+    <rect x="946" y="304" width="54" height="18" rx="9" fill="#F5F9FF" opacity="0.18"/>
+  </g>
+  <g>
+    <rect x="656" y="370" width="194" height="148" rx="28" fill="rgba(255,255,255,0.04)" stroke="rgba(207,228,255,0.1)"/>
+    <rect x="678" y="392" width="150" height="72" rx="20" fill="rgba(10, 23, 40, 0.84)" stroke="rgba(69,199,214,0.2)"/>
+    <path d="M696 430H810" stroke="#45C7D6" stroke-width="6" stroke-linecap="round"/>
+    <path d="M696 448H778" stroke="#CFE4FF" stroke-width="6" stroke-linecap="round"/>
+    <text x="678" y="495" fill="#D7E4F3" font-size="16" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">訓練情境</text>
+  </g>
+  <g>
+    <rect x="874" y="370" width="194" height="148" rx="28" fill="rgba(255,255,255,0.04)" stroke="rgba(207,228,255,0.1)"/>
+    <rect x="896" y="392" width="150" height="72" rx="20" fill="rgba(10, 23, 40, 0.84)" stroke="rgba(86,168,255,0.2)"/>
+    <circle cx="930" cy="428" r="16" fill="#56A8FF"/>
+    <circle cx="972" cy="428" r="16" fill="#45C7D6"/>
+    <circle cx="1014" cy="428" r="16" fill="#93EFF5"/>
+    <text x="896" y="495" fill="#D7E4F3" font-size="16" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">評分回顧</text>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="132" y1="32" x2="1040" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07121E"/>
+      <stop offset="0.6" stop-color="#0A1A32"/>
+      <stop offset="1" stop-color="#030916"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="714" y1="150" x2="1030" y2="282" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10233A"/>
+      <stop offset="1" stop-color="#0A1627"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(944 88) rotate(90) scale(190)">
+      <stop stop-color="#45C7D6" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#45C7D6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(224 24) rotate(90) scale(210)">
+      <stop stop-color="#56A8FF" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#56A8FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

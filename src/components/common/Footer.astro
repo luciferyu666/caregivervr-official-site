@@ -1,0 +1,36 @@
+---
+import BrandLogo from './BrandLogo.astro';
+import { siteConfig } from '../../data/site';
+---
+
+<footer class="relative z-10 border-t border-white/8 bg-slate-950/70">
+  <div class="page-shell grid gap-10 py-12 lg:grid-cols-[1.1fr_0.9fr]">
+    <div>
+      <BrandLogo variant="wordmark" class="h-8 w-auto" />
+      <h2 class="mt-3 text-2xl font-semibold text-white">以 VR 建立可信、可延展、可複驗的照護訓練流程。</h2>
+      <p class="mt-4 max-w-2xl text-sm leading-7 text-muted">
+        本站為 CareMirror 照護之鏡官方網站第一版，作為對外介紹、產品展示、技術溝通與預約 demo 的入口。
+      </p>
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      <div>
+        <p class="text-sm font-semibold text-white">快速連結</p>
+        <ul class="mt-4 space-y-3 text-sm text-muted">
+          <li><a href="/about" class="hover:text-white">關於我們</a></li>
+          <li><a href="/product" class="hover:text-white">產品介紹</a></li>
+          <li><a href="/technology" class="hover:text-white">技術能力</a></li>
+          <li><a href="/process" class="hover:text-white">開發過程</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-sm font-semibold text-white">聯絡方式</p>
+        <ul class="mt-4 space-y-3 text-sm text-muted">
+          <li>Email：{siteConfig.contactEmail}</li>
+          <li>電話：{siteConfig.contactPhone}</li>
+          <li><a href="/contact#demo" class="hover:text-white">預約產品 Demo</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

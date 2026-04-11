@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionTitle from '../components/common/SectionTitle.astro';
+import { siteConfig } from '../data/site';
+
+const capabilities = [
+  {
+    title: 'Unity 與 Quest 3',
+    description: '以 Unity 為主要開發環境，面向 Quest 3 進行互動與視覺流程設計。',
+  },
+  {
+    title: 'SOP 規格化',
+    description: '將照護流程轉為可解析、可重構、可驗證的步驟與規則。',
+  },
+  {
+    title: 'Data-driven 架構',
+    description: '保留步驟定義、互動判定與顯示邏輯的資料化延展空間。',
+  },
+  {
+    title: '事件紀錄與評估',
+    description: '讓操作錯誤、完成條件與結果摘要都能被追蹤與回放。',
+  },
+  {
+    title: '模組化與可維護性',
+    description: '讓新內容、新步驟與新場景不必重做整個系統即可擴充。',
+  },
+];
+---
+
+<BaseLayout
+  title="技術能力｜CareMirror 照護之鏡"
+  description="CareMirror 照護之鏡以 Unity、Quest 3、SOP 規格化、事件記錄與可維護架構為基礎，打造可延伸的照護 VR 教學產品。"
+  ogImage={siteConfig.defaultOgImage}
+  ogImages={siteConfig.socialImages.default}
+  canonical="/technology">
+  <section class="section-space">
+    <div class="page-shell">
+      <SectionTitle
+        eyebrow="技術能力"
+        title="把互動技術與教學需求放進同一條產品鏈"
+        description="我們關注的不只是 VR 互動本身，而是如何把規格、步驟、判定與回顧整合成可維護的產品架構。" />
+      <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {
+          capabilities.map((item) => (
+            <article class="panel p-7">
+              <h3 class="text-xl font-semibold text-white">{item.title}</h3>
+              <p class="mt-4 text-sm leading-7 text-muted">{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="mt-6 panel grid gap-6 p-8 lg:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <span class="section-kicker">對外閱讀版本</span>
+          <h3 class="mt-5 text-2xl font-semibold text-white">白皮書頁已把技術脈絡轉譯成院方可理解的架構說明</h3>
+          <p class="mt-4 text-base leading-8 text-muted">
+            網站技術頁聚焦能力概覽；若需要讓院方更完整理解場景、訓練構成與互動資料設計，現在可以直接導向院方白皮書頁。
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-4">
+          <a class="btn-primary" href="/white-paper#architecture">閱讀架構說明</a>
+          <a class="btn-secondary" href="/white-paper#rollout">查看導入建議</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

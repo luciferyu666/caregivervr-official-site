@@ -1,0 +1,48 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">CareMirror 預設方形 OG 圖</title>
+  <desc id="desc">CareMirror 照護之鏡的方形社群分享圖，展示品牌名稱、中文品牌與品牌色塊。</desc>
+  <rect width="1200" height="1200" fill="#05111F"/>
+  <rect width="1200" height="1200" fill="url(#bg)"/>
+  <circle cx="910" cy="166" r="250" fill="url(#glowA)"/>
+  <circle cx="224" cy="121" r="240" fill="url(#glowB)"/>
+  <rect x="84" y="84" width="1032" height="1032" rx="48" fill="rgba(10, 23, 40, 0.88)" stroke="rgba(207, 228, 255, 0.14)"/>
+  <rect x="132" y="136" width="118" height="118" rx="32" fill="url(#mark)"/>
+  <path d="M170 184C170 161.356 188.356 143 211 143C233.644 143 252 161.356 252 184V195H230V184C230 173.507 221.493 165 211 165C200.507 165 192 173.507 192 184V213C192 223.493 200.507 232 211 232C218.898 232 225.672 227.182 228.533 220H252C247.605 237.849 231.481 251 211 251C188.356 251 170 232.644 170 210V184Z" fill="#F5F9FF"/>
+  <text x="280" y="216" fill="#F5F9FF" font-size="74" font-weight="700" font-family="'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">CareMirror</text>
+  <text x="132" y="340" fill="#CFE4FF" font-size="34" font-weight="600" font-family="'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">照護之鏡</text>
+  <text x="132" y="410" fill="#9DB1C7" font-size="28" font-weight="500" font-family="'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">將高敏感度照護教學整理為可重複演練、可追蹤評分、可正式展示的 VR 產品敘事。</text>
+  <g>
+    <rect x="132" y="500" width="250" height="58" rx="29" fill="rgba(86, 168, 255, 0.16)" stroke="rgba(159, 208, 255, 0.24)"/>
+    <text x="257" y="537" text-anchor="middle" fill="#D7E4F3" font-size="20" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">Training Workflow</text>
+    <rect x="398" y="500" width="210" height="58" rx="29" fill="rgba(69, 199, 214, 0.14)" stroke="rgba(147, 239, 245, 0.22)"/>
+    <text x="503" y="537" text-anchor="middle" fill="#D7E4F3" font-size="20" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">Quest 3</text>
+    <rect x="624" y="500" width="226" height="58" rx="29" fill="rgba(255,255,255,0.05)" stroke="rgba(207,228,255,0.12)"/>
+    <text x="737" y="537" text-anchor="middle" fill="#D7E4F3" font-size="20" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">AAR Review</text>
+  </g>
+  <g>
+    <rect x="132" y="658" width="936" height="320" rx="36" fill="rgba(255,255,255,0.04)" stroke="rgba(207,228,255,0.1)"/>
+    <text x="180" y="724" fill="#93EFF5" font-size="18" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">OFFICIAL WEBSITE BRAND SYSTEM</text>
+    <text x="180" y="798" fill="#F5F9FF" font-size="42" font-weight="700" font-family="'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">品牌字體系統</text>
+    <text x="180" y="860" fill="#F5F9FF" font-size="42" font-weight="700" font-family="'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">色票與 Design Token</text>
+    <text x="180" y="922" fill="#F5F9FF" font-size="42" font-weight="700" font-family="'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">社群圖與 Metadata 規格</text>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="164" y1="32" x2="984" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06131F"/>
+      <stop offset="0.62" stop-color="#0A1930"/>
+      <stop offset="1" stop-color="#040915"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(910 166) rotate(90) scale(250)">
+      <stop stop-color="#45C7D6" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#45C7D6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(224 121) rotate(90) scale(240)">
+      <stop stop-color="#56A8FF" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#56A8FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mark" x1="132" y1="136" x2="250" y2="254" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#56A8FF"/>
+      <stop offset="1" stop-color="#45C7D6"/>
+    </linearGradient>
+  </defs>
+</svg>

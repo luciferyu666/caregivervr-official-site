@@ -1,0 +1,334 @@
+---
+import Hero from '../components/home/Hero.astro';
+import ProductPreviewGrid from '../components/home/ProductPreviewGrid.astro';
+import SectionTitle from '../components/common/SectionTitle.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../data/site';
+
+const coreValues = [
+  {
+    title: '流程標準化',
+    description: '將照護 SOP 轉化為可被系統判定的互動流程',
+  },
+  {
+    title: '數據化評核',
+    description: '透過錯誤紀錄與補訓追蹤提升訓練品質',
+  },
+  {
+    title: '醫養整合應用',
+    description: '支援醫院與長照機構一致性訓練',
+  },
+];
+
+const flowSteps = [
+  {
+    title: '示教（傳統）',
+    description: '以教師帶領、紙本 SOP 與口頭示範為主，內容仰賴個別教學者經驗。',
+  },
+  {
+    title: 'VR 演練（CareMirror）',
+    description: '把步驟、互動與判定整合進同一條訓練流程，讓學員在可重複情境中演練。',
+  },
+  {
+    title: '評分與補訓',
+    description: '透過錯誤紀錄、結果回顧與補訓依據，提升訓練一致性與教學效率。',
+  },
+];
+
+const useCases = [
+  {
+    title: '醫院護理教育',
+    description: '用於示教前導、流程解說與高敏感度情境的前置演練。',
+  },
+  {
+    title: '住院整合照護',
+    description: '協助跨角色照護團隊對齊流程與訓練重點。',
+  },
+  {
+    title: '出院準備銜接長照',
+    description: '作為從醫院端延伸至長照端的教學與流程銜接工具。',
+  },
+  {
+    title: '長照機構訓練',
+    description: '支援新人導入、教學複習與一致化訓練安排。',
+  },
+];
+
+const techHighlights = [
+  {
+    title: 'Unity + Quest 3',
+    description: '以成熟開發環境承接情境演練與裝置部署方向。',
+  },
+  {
+    title: 'SOP 規格化',
+    description: '把照護步驟轉成可教、可演練、可判定的流程結構。',
+  },
+  {
+    title: 'Data-driven 架構',
+    description: '保留內容擴充、場景延展與規則調整的彈性。',
+  },
+  {
+    title: '評分與事件紀錄',
+    description: '讓教學回顧有步驟依據，不只停留在主觀印象。',
+  },
+];
+
+const whitePaperHighlights = [
+  {
+    title: '教學痛點與導入背景',
+    description: '從高敏感度照護情境、示教一致性與訓練壓力切入，說明院方為何需要更系統化的教學工具。',
+  },
+  {
+    title: '系統定位與展示價值',
+    description: '整理 CareMirror 如何承接示教、演練、評分回顧與後續導入討論，不把系統只做成單次 demo。',
+  },
+  {
+    title: '目前驗證範圍',
+    description: '清楚標示目前已完成的 Editor 展示驗證與可對外展示邊界，方便院方審閱與評估。',
+  },
+];
+
+const whitePaperAnchors = [
+  { label: '執行摘要', href: '/white-paper#summary' },
+  { label: '教學挑戰', href: '/white-paper#pain-points' },
+  { label: '核心價值', href: '/white-paper#values' },
+  { label: '系統架構', href: '/white-paper#architecture' },
+  { label: '驗證範圍', href: '/white-paper#validation' },
+  { label: '導入建議', href: '/white-paper#rollout' },
+];
+
+const adoptionTimeline = [
+  {
+    title: '盤點院內示教情境',
+    description: '先對齊要展示的照護主題、教學目標與參與角色，讓 demo 有明確焦點。',
+  },
+  {
+    title: '建立 VR 演練與示教節奏',
+    description: '將示教流程、互動步驟與教學講解整理成可被重複演示的展示版本。',
+  },
+  {
+    title: '評分回顧與後續導入',
+    description: '依展示結果討論評核方式、補訓需求與下一階段模組擴充方向。',
+  },
+];
+---
+
+<BaseLayout
+  title="CareMirror 照護之鏡 | 照護訓練系統"
+  description="將照護 SOP 轉化為可量化、可重複演練的 VR 訓練系統"
+  ogImage={siteConfig.socialImageHome}
+  ogImages={siteConfig.socialImages.home}
+  canonical="/">
+  <Hero />
+
+  <section class="section-space border-y border-white/6 bg-slate-950/20">
+    <div class="page-shell">
+      <SectionTitle
+        eyebrow="產品畫面"
+        title="從訓練情境、模組操作到評分回顧，首頁直接呈現產品畫面"
+        description="首頁以可提案的方式呈現產品核心畫面，讓院方與合作單位快速理解系統如何承接照護訓練。" />
+      <div class="mt-10">
+        <ProductPreviewGrid />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space">
+    <div class="page-shell">
+      <SectionTitle
+        eyebrow="三大價值"
+        title="把照護訓練做成可提案、可導入、可回顧的正式系統"
+        description="CareMirror 聚焦訓練一致性、評核依據與醫養整合應用，讓 VR 不只是展示畫面，而是可落地的教學工具。" />
+      <div class="mt-10 grid gap-6 lg:grid-cols-3">
+        {
+          coreValues.map((item) => (
+            <article class="panel p-7">
+              <h3 class="text-2xl font-semibold text-white">{item.title}</h3>
+              <p class="mt-4 text-base leading-8 text-muted">{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space border-y border-white/6 bg-slate-950/20">
+    <div class="page-shell">
+      <SectionTitle
+        eyebrow="訓練流程"
+        title="從示教 → 系統化訓練"
+        description="這段是 CareMirror 的核心 selling point：不是取代老師，而是把示教、演練與評分回顧放進同一條可重複流程。" />
+      <div class="mt-10 grid gap-6 lg:grid-cols-3">
+        {
+          flowSteps.map((item, index) => (
+            <article class="panel relative flex h-full flex-col p-7">
+              <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-400/14 text-lg font-semibold text-brand-100">
+                {index + 1}
+              </div>
+              <h3 class="text-2xl font-semibold text-white">{item.title}</h3>
+              <p class="mt-4 flex-1 text-base leading-8 text-muted">{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space">
+    <div class="page-shell">
+      <SectionTitle
+        eyebrow="應用場景"
+        title="從醫院到長照機構，讓照護訓練內容更一致"
+        description="CareMirror 的設計重點，不是單一展示情境，而是可承接不同照護教學場景的共同訓練需求。" />
+      <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        {
+          useCases.map((item, index) => (
+            <article class="panel p-7">
+              <p class="text-sm uppercase tracking-[0.18em] text-brand-100">0{index + 1}</p>
+              <h3 class="mt-4 text-2xl font-semibold text-white">{item.title}</h3>
+              <p class="mt-4 text-sm leading-7 text-muted">{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space border-y border-white/6 bg-slate-950/20">
+    <div class="page-shell">
+      <SectionTitle
+        eyebrow="技術能力"
+        title="用足夠可信、可閱讀的技術結構，支撐教學與提案"
+        description="我們刻意避免堆疊過多技術術語，而是把院方與合作方真正需要理解的能力整理成四個重點。" />
+      <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        {
+          techHighlights.map((item) => (
+            <article class="panel p-7">
+              <h3 class="text-xl font-semibold text-white">{item.title}</h3>
+              <p class="mt-4 text-sm leading-7 text-muted">{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space">
+    <div class="page-shell">
+      <div class="panel grid gap-8 overflow-hidden p-8 lg:grid-cols-[1.05fr_0.95fr] lg:p-10">
+        <div>
+          <span class="section-kicker">院方白皮書</span>
+          <h2 class="mt-5 text-3xl font-semibold text-white sm:text-4xl">先用一份摘要，快速理解 CareMirror 的展示定位</h2>
+          <p class="mt-5 max-w-2xl text-base leading-8 text-muted">
+            我們已將院方版白皮書整理成可閱讀頁面，聚焦訓練挑戰、系統定位、驗證範圍與導入建議，方便院內教學單位、
+            資訊單位與合作窗口先快速掌握提案內容。
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a class="btn-primary" href="/white-paper">閱讀院方白皮書</a>
+            <a class="btn-secondary" href="/product">查看產品畫面</a>
+          </div>
+
+          <div class="mt-8 grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+            <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+              <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-100">白皮書重點下載提示</p>
+              <p class="mt-3 text-sm leading-7 text-muted">
+                若院內會議需要 PDF 或 Notion 審閱版本，可先閱讀線上白皮書，再由聯絡頁安排院方版本整理與展示資料交付。
+              </p>
+              <div class="mt-5 flex flex-wrap gap-3">
+                <a class="btn-secondary" href="/contact">索取院方審閱版本</a>
+              </div>
+            </div>
+
+            <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+              <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-100">展示影片導向</p>
+              <p class="mt-3 text-sm leading-7 text-muted">
+                若想先看畫面與操作節奏，可直接前往產品頁的影片區，或先觀看系統總覽影片。
+              </p>
+              <div class="mt-5 flex flex-wrap gap-3">
+                <a class="btn-secondary" href="/product#product-videos">前往影片區</a>
+                <a
+                  class="btn-secondary"
+                  href={siteConfig.demoVideos[0].watchUrl}
+                  target="_blank"
+                  rel="noreferrer">
+                  觀看系統總覽
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid gap-4">
+          {
+            whitePaperHighlights.map((item, index) => (
+              <article class="panel border border-white/10 bg-white/5 p-6">
+                <p class="text-sm uppercase tracking-[0.18em] text-brand-100">0{index + 1}</p>
+                <h3 class="mt-4 text-xl font-semibold text-white">{item.title}</h3>
+                <p class="mt-3 text-sm leading-7 text-muted">{item.description}</p>
+              </article>
+            ))
+          }
+          <div class="panel border border-white/10 bg-slate-950/55 p-6">
+            <p class="text-sm uppercase tracking-[0.18em] text-brand-100">目錄式導覽</p>
+            <div class="mt-5 flex flex-wrap gap-3">
+              {
+                whitePaperAnchors.map((item) => (
+                  <a class="info-chip" href={item.href}>{item.label}</a>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space">
+    <div class="page-shell">
+      <div class="panel grid gap-8 overflow-hidden p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-10">
+        <div>
+          <span class="section-kicker">預約展示</span>
+          <h2 class="mt-5 text-3xl font-semibold text-white sm:text-4xl">開始建立你的照護訓練系統</h2>
+          <p class="mt-5 max-w-2xl text-base leading-8 text-muted">
+            如果你正在準備院內展示、教學導入或跨單位流程對齊，CareMirror 可以作為照護訓練系統的第一個可展示版本。
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a class="btn-primary" href="/contact#demo">預約 demo</a>
+            <a class="btn-secondary" href="/contact">聯絡我們</a>
+          </div>
+        </div>
+        <div class="grid gap-4">
+          <div class="panel border border-white/10 bg-white/5 p-6">
+            <p class="text-sm uppercase tracking-[0.18em] text-brand-100">導入三階段</p>
+            <div class="mt-5 space-y-4">
+              {
+                adoptionTimeline.map((item, index) => (
+                  <div class="flex gap-4 border-l border-white/10 pl-4">
+                    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-brand-400/14 text-sm font-semibold text-brand-100">
+                      0{index + 1}
+                    </div>
+                    <div>
+                      <h3 class="text-base font-semibold text-white">{item.title}</h3>
+                      <p class="mt-2 text-sm leading-7 text-muted">{item.description}</p>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            <div class="panel border border-brand-200/10 bg-brand-400/8 p-6">
+              <p class="text-sm uppercase tracking-[0.18em] text-brand-100">01</p>
+              <h3 class="mt-4 text-xl font-semibold text-white">對醫院提案展示</h3>
+              <p class="mt-3 text-sm leading-7 text-muted">適合院方簡報、教學審閱與專案收案時的正式對外展示。</p>
+            </div>
+            <div class="panel border border-mint-400/10 bg-mint-500/8 p-6">
+              <p class="text-sm uppercase tracking-[0.18em] text-mint-400">02</p>
+              <h3 class="mt-4 text-xl font-semibold text-white">安排 demo 與流程討論</h3>
+              <p class="mt-3 text-sm leading-7 text-muted">可依醫院與長照機構需求，安排展示、導入評估與後續擴充規劃。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

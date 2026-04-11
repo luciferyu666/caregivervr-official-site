@@ -1,0 +1,476 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BrandLogo from '../components/common/BrandLogo.astro';
+import { siteConfig } from '../data/site';
+
+const audienceGroups = ['醫院護理教育', '長照訓練', '院內展示', '流程審閱'];
+
+const proposalSignals = [
+  {
+    label: '目前定位',
+    value: '院內展示與教學流程審閱版',
+    note: '適合作為院方簡報、導覽展示、流程校準與合作討論的正式閱讀版本。',
+    theme: 'border-brand-200/12 bg-brand-400/8 text-slate-100',
+  },
+  {
+    label: '正式驗證',
+    value: 'Unity Editor + Desktop Click PASS',
+    note: '目前已完成 W3 展示場景在 Unity Editor Play Mode 與桌面滑鼠操作下的全流程驗證。',
+    theme: 'border-mint-400/12 bg-mint-500/8 text-slate-100',
+  },
+  {
+    label: '下一階段',
+    value: 'Quest / 裝置端試教驗證',
+    note: '若要進入頭戴式裝置正式教學部署，仍應另行完成 Android / Quest 實機驗證與院內試行。',
+    theme: 'border-white/10 bg-white/5 text-muted',
+  },
+];
+
+const quickFacts = [
+  { value: 'W3', label: '主要展示場景' },
+  { value: 'S01-S51', label: '流程驗證範圍' },
+  { value: 'Editor PASS', label: '目前正式驗證模式' },
+  { value: 'Desktop Click', label: '已完成滑鼠操作驗證' },
+];
+
+const painPoints = [
+  {
+    title: '訓練場域有限',
+    description:
+      '真實病房、示教教室與模擬情境資源有限，像床上擦澡與會陰清潔這類完整流程，更難安排高頻率重複演練。',
+  },
+  {
+    title: '初學者心理負荷高',
+    description:
+      '新進學員第一次面對私密照護時，常同時承受技術要求、流程記憶與與個案互動壓力，容易忽略溝通與尊重。',
+  },
+  {
+    title: '教學標準難以一致',
+    description:
+      '不同教師對於錯誤嚴重程度、是否可接受修正與教學重點的判定不盡相同，造成訓練經驗與回饋品質差異。',
+  },
+  {
+    title: '回饋缺乏可追蹤資料',
+    description:
+      '若沒有流程級記錄，教師與學員很難回看錯誤點、比較改善情況，也不利於跨梯次的教學品質分析。',
+  },
+];
+
+const positioning = [
+  '作為照護流程的標準化示範工具',
+  '作為學員進入真實情境前的反覆演練環境',
+  '作為教師進行步驟講解、錯誤討論與流程回顧的輔助平台',
+  '作為後續建立數位訓練紀錄與教學品質分析的基礎',
+];
+
+const buildGoals = [
+  '將照護流程拆解為可教學、可驗證的步驟單元',
+  '將環境準備、話術、隱私保護與技術操作納入同一條訓練流程',
+  '讓學員能在低風險情境中重複演練',
+  '讓教師能以一致化流程進行講解與回饋',
+  '逐步建立可追蹤的訓練證據與展示基準',
+];
+
+const valuePillars = [
+  {
+    title: '專業標準化',
+    description:
+      '將照護流程由抽象敘述轉化為具體步驟，讓進房、溝通、環境確認、清潔操作與結束說明都能在同一標準下演示。',
+  },
+  {
+    title: '心理安全性',
+    description:
+      '以教學導向的虛擬場景與互動設計，降低初學者在正式實作前面對高敏感度流程的心理壓力。',
+  },
+  {
+    title: '可追蹤回饋',
+    description:
+      '保留步驟完成、互動順序與關鍵流程記錄，使回饋可以回到具體步驟，而不只停留在主觀印象。',
+  },
+  {
+    title: '人文關懷整合',
+    description:
+      '將溝通話術、隱私保護、環境舒適與照護過程說明納入同一條教學流程，讓技術與尊重一起被練習。',
+  },
+];
+
+const architecture = [
+  {
+    title: '平台與場景',
+    description:
+      '系統目前以 Unity 建置互動場景與流程邏輯，現行主要展示場景為 W3_DirectorReview_Demo.unity，用於教學流程確認、互動驗證與示範展示。',
+  },
+  {
+    title: '核心訓練構成',
+    description:
+      '現階段內容涵蓋進房與問候、環境確認、床上擦澡、翻身、便盆與會陰照護，以及照護結束後的溝通與回顧節點。',
+  },
+  {
+    title: '互動與教學資料設計',
+    description:
+      '系統把步驟、互動對象、教學提示、流程轉換與紀錄事件綁在一起，使場景不只是可操作，也可供教學者回看與討論。',
+  },
+];
+
+const scenarios = [
+  {
+    title: '床上擦澡流程',
+    description:
+      '從進入房間、與個案溝通、準備環境與用品、依序進行身體清潔，到結束說明與整理，形成完整訓練脈絡。',
+  },
+  {
+    title: '會陰清潔與便盆相關流程',
+    description:
+      '以分步方式呈現私密照護流程，讓學員先在心理負荷較低的教學情境中熟悉正確順序與操作重點。',
+  },
+  {
+    title: '教學價值',
+    description:
+      '重點不在於模擬所有臨床變化，而在於提供一條可反覆演示、可供教師逐步講解、且能聚焦核心原則的教學路徑。',
+  },
+];
+
+const feedbackPoints = [
+  '哪一個步驟未完成',
+  '哪一段順序有偏差',
+  '哪些項目屬於技術問題',
+  '哪些項目屬於溝通或隱私處理不足',
+];
+
+const validated = [
+  '`S01` 至 `S51` 全流程通過',
+  'Unity Editor Play Mode 驗證通過',
+  'Windows 桌面真實滑鼠點擊操作驗證通過',
+  '中文操作標籤與 runner log 已整理為可閱讀格式',
+  '已建立固定 regression gate，可持續重跑驗證',
+];
+
+const suitableFor = [
+  '院內簡報與專案展示',
+  '教學流程導覽展示',
+  '示教用流程審閱',
+  '作為後續正式訓練平台之原型與基準版本',
+];
+
+const notClaimed = [
+  'Android 正式封裝版已完成全面驗證',
+  'Meta Quest 3 實機部署版已完成院內驗證',
+  '非編輯器執行環境與編輯器版本已完成視覺與互動完全一致驗證',
+];
+
+const rolloutPhases = [
+  {
+    title: '第一階段：教學展示與流程確認',
+    description:
+      '先用現有示範版本與院方對齊流程、話術、隱私保護與評量重點，建立跨單位的共同認知。',
+  },
+  {
+    title: '第二階段：院方流程對齊與內容調整',
+    description:
+      '將院內既有 SOP、授課習慣與常見錯誤類型納入調整，形成更符合教學使用的版本。',
+  },
+  {
+    title: '第三階段：裝置部署與試教驗證',
+    description:
+      '在展示版本確認後，再進一步進入頭戴式裝置部署、效能驗證與現場試教，確認最終教學模式與設備管理流程。',
+  },
+];
+
+const deliverables = [
+  'Unity 專案與互動邏輯內容',
+  '指定示範場景',
+  '教學用流程文件',
+  '驗證報告與 signoff 文件',
+  '後續維護與擴充建議',
+];
+
+const anchors = [
+  { href: '#summary', label: '執行摘要' },
+  { href: '#pain-points', label: '教學挑戰' },
+  { href: '#positioning', label: '定位與目標' },
+  { href: '#values', label: '核心價值' },
+  { href: '#architecture', label: '系統架構' },
+  { href: '#scenarios', label: '示範情境' },
+  { href: '#validation', label: '驗證範圍' },
+  { href: '#rollout', label: '導入建議' },
+];
+---
+
+<BaseLayout
+  title="院方白皮書｜CareMirror 照護之鏡"
+  description="CareMirror 照護之鏡院方白皮書，整理照護教學痛點、系統定位、驗證範圍與分階段導入建議。"
+  ogImage={siteConfig.defaultOgImage}
+  ogImages={siteConfig.socialImages.default}
+  canonical="/white-paper">
+  <section class="relative overflow-hidden pb-8 pt-12 sm:pt-16 lg:pb-14">
+    <div class="page-shell">
+      <div class="panel relative overflow-hidden p-8 lg:p-10">
+        <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(86,168,255,0.18),transparent_34%),radial-gradient(circle_at_85%_18%,rgba(69,199,214,0.18),transparent_28%)]"></div>
+        <div class="relative grid gap-10 lg:grid-cols-[1.08fr_0.92fr]">
+          <div>
+            <span class="section-kicker">院方提案頁</span>
+            <div class="mt-5">
+              <BrandLogo variant="wordmark" class="h-8 w-auto" />
+            </div>
+            <h1 class="mt-6 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              CareMirror
+              <span class="mt-3 block text-2xl leading-10 text-brand-200 sm:text-3xl">
+                照護之鏡｜把照護教學從口述示範，推進到可展示、可重複、可追蹤的訓練流程
+              </span>
+            </h1>
+            <p class="mt-6 max-w-3xl text-base leading-8 text-muted sm:text-lg">
+              本頁以院方與教學單位為主要讀者，整理系統定位、教學價值、示範情境、驗證邊界與分階段導入建議。
+              它不是技術說明書，而是面向決策與合作討論的正式提案閱讀版本。
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              {audienceGroups.map((item) => <span class="info-chip">{item}</span>)}
+            </div>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a class="btn-primary" href="/contact#demo">安排院方展示</a>
+              <a class="btn-secondary" href="/product">查看產品頁</a>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="rounded-[1.75rem] border border-white/10 bg-slate-950/72 p-6">
+              <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-100">提案摘要</p>
+              <div class="mt-5 space-y-4">
+                {
+                  proposalSignals.map((item) => (
+                    <div class:list={['rounded-3xl border p-5', item.theme]}>
+                      <p class="text-xs uppercase tracking-[0.18em] text-brand-100">{item.label}</p>
+                      <h2 class="mt-3 text-2xl font-semibold text-white">{item.value}</h2>
+                      <p class="mt-3 text-sm leading-7 text-muted">{item.note}</p>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        {
+          quickFacts.map((item) => (
+            <div class="panel p-5">
+              <p class="text-sm uppercase tracking-[0.18em] text-brand-100">{item.label}</p>
+              <p class="mt-4 text-2xl font-semibold text-white">{item.value}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space pt-8">
+    <div class="page-shell grid gap-8 lg:grid-cols-[0.32fr_0.68fr]">
+      <aside class="space-y-6 lg:sticky lg:top-26 lg:self-start">
+        <div class="panel p-6">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-100">閱讀索引</p>
+          <div class="mt-5 flex flex-wrap gap-3 lg:flex-col lg:items-start">
+            {anchors.map((item) => <a href={item.href} class="info-chip">{item.label}</a>)}
+          </div>
+        </div>
+
+        <div class="panel p-6">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-100">目前建議對外說法</p>
+          <p class="mt-4 text-sm leading-7 text-muted">
+            可明確主張院內展示、流程導覽與教學審閱用途；不將目前成果直接延伸為 Quest 3 正式部署已完成驗證。
+          </p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a class="btn-primary" href="/contact#demo">預約展示</a>
+            <a class="btn-secondary" href="/use-cases">查看應用場景</a>
+          </div>
+        </div>
+      </aside>
+
+      <div class="space-y-6">
+        <article id="summary" class="panel p-8 lg:p-10">
+          <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <span class="section-kicker">執行摘要</span>
+              <h2 class="mt-5 text-3xl font-semibold text-white sm:text-4xl">
+                定位不是取代臨床教學，而是建立一套可示範、可複習、可追蹤的教學平台
+              </h2>
+              <p class="mt-5 text-base leading-8 text-muted">
+                隨著高齡照護需求持續增加，照顧服務員的培訓模式正面臨場域有限、心理負荷高與教學標準難以一致等挑戰。
+                CareMirror 照護之鏡的目標，是讓高敏感度照護流程先在低風險的教學環境中被反覆演練，再逐步銜接至正式教學與導入。
+              </p>
+              <p class="mt-5 text-base leading-8 text-muted">
+                目前系統已完成 `W3_DirectorReview_Demo.unity` 展示場景的完整示範流程驗證，並取得 `S01` 至 `S51`
+                的編輯器模式全流程通過證據，適合作為院內導覽展示、教學流程說明與專案審閱用途。
+              </p>
+            </div>
+            <div class="grid gap-4">
+              {suitableFor.map((item) => <div class="rounded-3xl border border-brand-200/10 bg-brand-400/8 p-5 text-sm leading-7 text-slate-100">{item}</div>)}
+            </div>
+          </div>
+        </article>
+
+        <article id="pain-points" class="panel p-8 lg:p-10">
+          <span class="section-kicker">教學挑戰</span>
+          <h2 class="mt-5 text-3xl font-semibold text-white sm:text-4xl">現代照護訓練最常見的四個卡點</h2>
+          <p class="mt-4 max-w-3xl text-base leading-8 text-muted">
+            白皮書將院方最在意的教學瓶頸拆成四個面向，讓對外展示不只是描述產品功能，而是先清楚定義教學問題。
+          </p>
+          <div class="mt-10 grid gap-6 md:grid-cols-2">
+            {
+              painPoints.map((item, index) => (
+                <article class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+                  <div class="flex items-start gap-4">
+                    <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-400/14 text-lg font-semibold text-brand-100">
+                      {index + 1}
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-semibold text-white">{item.title}</h3>
+                      <p class="mt-3 text-sm leading-7 text-muted">{item.description}</p>
+                    </div>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+        </article>
+
+        <article id="positioning" class="panel p-8 lg:p-10">
+          <span class="section-kicker">定位與目標</span>
+          <h2 class="mt-5 text-3xl font-semibold text-white sm:text-4xl">把系統放回院內教學鏈，而不是只當成 VR 體驗展示</h2>
+          <div class="mt-10 grid gap-6 xl:grid-cols-[1fr_1fr]">
+            <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+              <h3 class="text-2xl font-semibold text-white">主要用途</h3>
+              <ul class="mt-6 space-y-4 text-sm leading-7 text-muted">
+                {positioning.map((item) => <li class="rounded-2xl border border-white/10 bg-slate-950/30 p-4">{item}</li>)}
+              </ul>
+            </div>
+            <div class="rounded-[1.75rem] border border-mint-400/10 bg-mint-500/8 p-6">
+              <h3 class="text-2xl font-semibold text-white">建置目標</h3>
+              <ul class="mt-6 space-y-4 text-sm leading-7 text-slate-100">
+                {buildGoals.map((item) => <li class="rounded-2xl border border-white/10 bg-slate-950/22 p-4">{item}</li>)}
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article id="values" class="panel p-8 lg:p-10">
+          <span class="section-kicker">核心價值</span>
+          <h2 class="mt-5 text-3xl font-semibold text-white sm:text-4xl">提案最重要的四個主張</h2>
+          <div class="mt-10 grid gap-6 md:grid-cols-2">
+            {
+              valuePillars.map((item, index) => (
+                <article class="rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] p-6">
+                  <p class="text-sm uppercase tracking-[0.18em] text-brand-100">Pillar 0{index + 1}</p>
+                  <h3 class="mt-4 text-2xl font-semibold text-white">{item.title}</h3>
+                  <p class="mt-4 text-base leading-8 text-muted">{item.description}</p>
+                </article>
+              ))
+            }
+          </div>
+        </article>
+
+        <article id="architecture" class="panel p-8 lg:p-10">
+          <span class="section-kicker">系統架構</span>
+          <h2 class="mt-5 text-3xl font-semibold text-white sm:text-4xl">從展示場景、訓練構成到互動資料設計，建立院方可閱讀的技術脈絡</h2>
+          <div class="mt-10 grid gap-6 lg:grid-cols-3">
+            {
+              architecture.map((item) => (
+                <article class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+                  <h3 class="text-2xl font-semibold text-white">{item.title}</h3>
+                  <p class="mt-4 text-sm leading-7 text-muted">{item.description}</p>
+                </article>
+              ))
+            }
+          </div>
+        </article>
+
+        <article id="scenarios" class="panel p-8 lg:p-10">
+          <span class="section-kicker">示範情境</span>
+          <h2 class="mt-5 text-3xl font-semibold text-white sm:text-4xl">用具體情境說明系統如何承接教學流程</h2>
+          <div class="mt-10 grid gap-6 lg:grid-cols-3">
+            {
+              scenarios.map((item) => (
+                <article class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+                  <h3 class="text-2xl font-semibold text-white">{item.title}</h3>
+                  <p class="mt-4 text-base leading-8 text-muted">{item.description}</p>
+                </article>
+              ))
+            }
+          </div>
+        </article>
+
+        <article class="panel p-8 lg:p-10">
+          <span class="section-kicker">評量與回饋</span>
+          <h2 class="mt-5 text-3xl font-semibold text-white sm:text-4xl">把教師回饋從印象式說明，轉成可回到步驟的教學討論</h2>
+          <div class="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {feedbackPoints.map((item) => <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 text-sm leading-7 text-muted">{item}</div>)}
+          </div>
+        </article>
+
+        <article id="validation" class="panel p-8 lg:p-10">
+          <span class="section-kicker">驗證範圍</span>
+          <h2 class="mt-5 text-3xl font-semibold text-white sm:text-4xl">把目前已完成的證據，與尚未對外主張的範圍清楚切開</h2>
+          <p class="mt-4 max-w-3xl text-base leading-8 text-muted">
+            這一段是正式提案頁最重要的風險控管內容，能避免對外展示時把現有成果過度延伸成尚未驗證的部署承諾。
+          </p>
+          <div class="mt-10 grid gap-6 xl:grid-cols-3">
+            <article class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+              <h3 class="text-2xl font-semibold text-white">已完成驗證</h3>
+              <ul class="mt-6 space-y-4 text-sm leading-7 text-muted">
+                {validated.map((item) => <li class="rounded-2xl border border-white/10 bg-slate-950/30 p-4">{item}</li>)}
+              </ul>
+            </article>
+            <article class="rounded-[1.75rem] border border-brand-200/10 bg-brand-400/8 p-6">
+              <h3 class="text-2xl font-semibold text-white">目前適合用途</h3>
+              <ul class="mt-6 space-y-4 text-sm leading-7 text-slate-100">
+                {suitableFor.map((item) => <li class="rounded-2xl border border-white/10 bg-slate-950/22 p-4">{item}</li>)}
+              </ul>
+            </article>
+            <article class="rounded-[1.75rem] border border-rose-300/12 bg-rose-400/8 p-6">
+              <h3 class="text-2xl font-semibold text-white">目前不主張</h3>
+              <ul class="mt-6 space-y-4 text-sm leading-7 text-slate-100">
+                {notClaimed.map((item) => <li class="rounded-2xl border border-white/10 bg-slate-950/22 p-4">{item}</li>)}
+              </ul>
+            </article>
+          </div>
+        </article>
+
+        <article id="rollout" class="panel p-8 lg:p-10">
+          <span class="section-kicker">導入建議</span>
+          <h2 class="mt-5 text-3xl font-semibold text-white sm:text-4xl">先展示校準，再進內容共編與裝置試教</h2>
+          <div class="mt-10 space-y-5">
+            {
+              rolloutPhases.map((item, index) => (
+                <article class="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 p-6 pl-20">
+                  <div class="absolute left-6 top-6 flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-400/14 text-base font-semibold text-brand-100">
+                    {index + 1}
+                  </div>
+                  <h3 class="text-2xl font-semibold text-white">{item.title}</h3>
+                  <p class="mt-4 text-base leading-8 text-muted">{item.description}</p>
+                </article>
+              ))
+            }
+          </div>
+        </article>
+
+        <article class="panel overflow-hidden p-8 lg:p-10">
+          <div class="grid gap-8 lg:grid-cols-[1.08fr_0.92fr]">
+            <div>
+              <span class="section-kicker">合作與交付</span>
+              <h2 class="mt-5 text-3xl font-semibold text-white sm:text-4xl">以系統建置、示範驗證與院方共編優化作為合作主軸</h2>
+              <p class="mt-5 max-w-3xl text-base leading-8 text-muted">
+                本系統目前最成熟的價值，在於它已具備可展示、可講解、可審閱的教學版本。對外合作時，可以先從院方重視的流程確認與示範價值切入，再逐步延伸到正式部署。
+              </p>
+              <div class="mt-8 flex flex-wrap gap-4">
+                <a class="btn-primary" href="/contact#demo">安排院方展示</a>
+                <a class="btn-secondary" href="/product">回到產品頁</a>
+              </div>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+              {deliverables.map((item) => <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 text-sm leading-7 text-muted">{item}</div>)}
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

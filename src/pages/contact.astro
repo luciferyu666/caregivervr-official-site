@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionTitle from '../components/common/SectionTitle.astro';
+import { siteConfig } from '../data/site';
+---
+
+<BaseLayout
+  title="聯絡我們｜CareMirror 照護之鏡"
+  description="聯絡 CareMirror 照護之鏡取得產品介紹、合作洽談與 Demo 預約資訊。本站目前為靜態網站，不含後端表單串接。"
+  ogImage={siteConfig.defaultOgImage}
+  ogImages={siteConfig.socialImages.default}
+  canonical="/contact">
+  <section class="section-space">
+    <div class="page-shell">
+      <SectionTitle
+        eyebrow="聯絡我們"
+        title="歡迎討論合作、教學導入與產品 Demo"
+        description="目前網站不串接後端表單，但已保留乾淨的靜態聯絡結構，方便之後延伸為正式官網流程。" />
+      <div class="mt-10 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+        <article class="panel p-8">
+          <h2 class="text-2xl font-semibold text-white">聯絡資訊</h2>
+          <div class="mt-6 space-y-4 text-sm leading-7 text-muted">
+            <p>Email：<a class="text-brand-200" href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a></p>
+            <p>電話：<a class="text-brand-200" href="tel:+886200000000">{siteConfig.contactPhone}</a></p>
+            <p>回覆時間：週一至週五 09:00–18:00（台灣時間）</p>
+          </div>
+        </article>
+        <article id="demo" class="panel p-8">
+          <h2 class="text-2xl font-semibold text-white">預約 Demo</h2>
+          <p class="mt-5 text-sm leading-7 text-muted">
+            若你希望安排產品導覽、需求訪談或技術交流，可先透過 Email 聯繫。我們會依照單位類型與討論目的安排合適的 Demo 形式。
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a class="btn-primary" href={`mailto:${siteConfig.contactEmail}?subject=CareMirror%20Demo%20Request`}>
+              寄信預約 Demo
+            </a>
+            <a class="btn-secondary" href="/product">先查看產品介紹</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import heroMain from '../../assets/product/hero-main.svg';
+
+const signals = [
+  { label: '定位', value: '女性照護員 VR 訓練系統' },
+  { label: '模式', value: 'SOP × VR × 評分回顧' },
+  { label: '導入', value: '醫院與長照訓練場域' },
+];
+---
+
+<section class="relative overflow-hidden">
+  <div class="page-shell grid gap-10 py-20 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:py-28">
+    <div class="relative z-10">
+      <span class="section-kicker">女性照護員 VR 訓練系統</span>
+      <h1 class="mt-6 text-5xl font-semibold tracking-tight text-white sm:text-6xl">CareMirror 照護之鏡</h1>
+      <h2 class="mt-4 max-w-4xl text-3xl font-semibold leading-tight text-brand-200 sm:text-5xl">
+        讓每一次照護，都被看見
+      </h2>
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-muted">
+        將照護 SOP 轉化為可量化、可重複演練的 VR 訓練系統
+      </p>
+
+      <div class="mt-9 flex flex-wrap gap-4">
+        <a class="btn-primary" href="/product">查看產品</a>
+        <a class="btn-secondary" href="/contact#demo">預約 demo</a>
+      </div>
+
+      <div class="mt-10 grid gap-4 sm:grid-cols-3">
+        {
+          signals.map((item) => (
+            <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+              <p class="text-xs uppercase tracking-[0.18em] text-brand-100">{item.label}</p>
+              <p class="mt-3 text-base font-semibold text-white">{item.value}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="absolute -inset-5 rounded-[2rem] bg-brand-400/10 blur-3xl"></div>
+      <div class="panel relative overflow-hidden p-4 sm:p-5">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(86,168,255,0.16),transparent_36%)]"></div>
+        <div class="relative overflow-hidden rounded-[1.7rem] border border-white/10 bg-slate-950/70 p-4">
+          <Image
+            src={heroMain}
+            alt="CareMirror 首頁主視覺，呈現照護訓練系統畫面"
+            width={800}
+            height={600}
+            loading="eager"
+            class="h-auto w-full rounded-[1.2rem] border border-white/10 bg-slate-950/60 object-cover" />
+
+          <div class="mt-4 grid gap-3 sm:grid-cols-3">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="text-sm font-semibold text-white">示教內容可視化</p>
+              <p class="mt-2 text-xs leading-6 text-muted">將抽象流程轉成可觀看、可講解的訓練畫面。</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="text-sm font-semibold text-white">流程節點可追蹤</p>
+              <p class="mt-2 text-xs leading-6 text-muted">從進房到評分回顧，保留可檢視的步驟脈絡。</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="text-sm font-semibold text-white">適合院方提案展示</p>
+              <p class="mt-2 text-xs leading-6 text-muted">讓教學單位快速理解系統價值與導入方向。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

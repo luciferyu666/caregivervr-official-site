@@ -1,0 +1,42 @@
+@layer base {
+  :root {
+    --font-display:
+      "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Segoe UI", sans-serif;
+    --font-body:
+      "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Segoe UI", sans-serif;
+    --font-ui:
+      "Inter", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Segoe UI", sans-serif;
+    --font-mono:
+      "JetBrains Mono", "SFMono-Regular", "Cascadia Code", "Consolas", monospace;
+  }
+
+  body {
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  button,
+  input,
+  select,
+  textarea,
+  .font-ui {
+    font-family: var(--font-ui);
+  }
+
+  code,
+  pre,
+  kbd,
+  samp,
+  .font-mono-role {
+    font-family: var(--font-mono);
+  }
+}

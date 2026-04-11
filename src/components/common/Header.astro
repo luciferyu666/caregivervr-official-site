@@ -1,0 +1,53 @@
+---
+import BrandLogo from './BrandLogo.astro';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props as Props;
+
+const navigation = [
+  { href: '/', label: '首頁' },
+  { href: '/about', label: '關於我們' },
+  { href: '/product', label: '產品介紹' },
+  { href: '/white-paper', label: '院方白皮書' },
+  { href: '/technology', label: '技術能力' },
+  { href: '/use-cases', label: '應用場景' },
+  { href: '/process', label: '開發過程' },
+  { href: '/contact', label: '聯絡我們' },
+];
+---
+
+<header class="sticky top-0 z-30 border-b border-white/8 bg-slate-950/72 backdrop-blur-xl">
+  <div class="page-shell flex flex-col gap-4 py-4 lg:flex-row lg:items-center lg:justify-between">
+    <a href="/" class="flex items-center gap-4">
+      <BrandLogo variant="full" class="h-12 w-auto" />
+    </a>
+
+    <nav class="flex flex-wrap items-center gap-2 text-sm">
+      {
+        navigation.map((item) => {
+          const isActive =
+            item.href === '/'
+              ? currentPath === item.href
+              : currentPath.startsWith(item.href);
+
+          return (
+            <a
+              href={item.href}
+              class:list={[
+                'font-ui rounded-full px-4 py-2 font-medium',
+                isActive
+                  ? 'bg-brand-400 text-slate-950'
+                  : 'text-slate-300 hover:bg-white/6 hover:text-white',
+              ]}>
+              {item.label}
+            </a>
+          );
+        })
+      }
+      <a href="/contact#demo" class="btn-primary ml-auto lg:ml-2">預約 Demo</a>
+    </nav>
+  </div>
+</header>

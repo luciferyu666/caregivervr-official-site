@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 900">
+  <defs>
+    <linearGradient id="hero-bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#0c2038" />
+      <stop offset="100%" stop-color="#081323" />
+    </linearGradient>
+    <linearGradient id="hero-accent" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#68b4ff" />
+      <stop offset="100%" stop-color="#1fc7b3" />
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="900" rx="44" fill="url(#hero-bg)" />
+  <circle cx="1030" cy="180" r="180" fill="#68b4ff" opacity=".14" />
+  <circle cx="1010" cy="240" r="220" fill="#1fc7b3" opacity=".08" />
+  <rect x="78" y="80" width="1124" height="740" rx="34" fill="#0b1a2f" stroke="#204261" />
+  <rect x="130" y="140" width="470" height="560" rx="28" fill="#112540" />
+  <rect x="168" y="184" width="394" height="30" rx="15" fill="#dceaff" opacity=".22" />
+  <rect x="168" y="236" width="210" height="22" rx="11" fill="#68b4ff" opacity=".6" />
+  <rect x="168" y="282" width="330" height="16" rx="8" fill="#dceaff" opacity=".18" />
+  <rect x="168" y="314" width="290" height="16" rx="8" fill="#dceaff" opacity=".18" />
+  <rect x="168" y="364" width="394" height="250" rx="28" fill="#0a1628" stroke="#1f3852" />
+  <path d="M228 470c52-82 106-124 160-124 72 0 138 60 138 144 0 96-72 162-180 162-84 0-132-62-132-134 0-16 2-32 14-48Z" fill="#f1c7b8" opacity=".88" />
+  <circle cx="360" cy="452" r="50" fill="#f8dccf" />
+  <rect x="650" y="140" width="494" height="190" rx="28" fill="#10233c" />
+  <rect x="684" y="178" width="120" height="120" rx="22" fill="#081526" stroke="#24506e" />
+  <rect x="836" y="190" width="260" height="24" rx="12" fill="#dceaff" opacity=".18" />
+  <rect x="836" y="236" width="210" height="18" rx="9" fill="#68b4ff" opacity=".75" />
+  <rect x="836" y="270" width="170" height="18" rx="9" fill="#1fc7b3" opacity=".7" />
+  <rect x="650" y="356" width="494" height="288" rx="28" fill="#10233c" />
+  <rect x="692" y="400" width="180" height="180" rx="24" fill="#0c1b2f" />
+  <rect x="900" y="402" width="202" height="26" rx="13" fill="url(#hero-accent)" opacity=".95" />
+  <rect x="900" y="452" width="154" height="18" rx="9" fill="#dceaff" opacity=".2" />
+  <rect x="900" y="490" width="188" height="18" rx="9" fill="#dceaff" opacity=".2" />
+  <rect x="900" y="528" width="170" height="18" rx="9" fill="#dceaff" opacity=".2" />
+  <rect x="900" y="566" width="120" height="18" rx="9" fill="#1fc7b3" opacity=".7" />
+  <rect x="730" y="438" width="104" height="16" rx="8" fill="#68b4ff" opacity=".8" />
+  <rect x="730" y="472" width="84" height="16" rx="8" fill="#dceaff" opacity=".22" />
+  <rect x="730" y="506" width="116" height="16" rx="8" fill="#dceaff" opacity=".22" />
+  <text x="168" y="744" fill="#dceaff" font-size="30" font-family="Noto Sans TC, PingFang TC, Microsoft JhengHei, sans-serif">
+    情境導引、流程判定、結果回顧整合於單一訓練畫面
+  </text>
+</svg>

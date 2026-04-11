@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionTitle from '../components/common/SectionTitle.astro';
+import { siteConfig } from '../data/site';
+
+const focuses = [
+  '從臨床與長照教學需求出發，聚焦真正需要標準化的照護流程。',
+  '將 VR 情境訓練與規格文件、步驟判定、錯誤回饋結合，建立完整教學工具鏈。',
+  '以可維護、可擴充、可轉入正式官網與產品展示為前提，持續迭代內容與證據呈現。',
+];
+---
+
+<BaseLayout
+  title="關於我們｜CareMirror 照護之鏡"
+  description="CareMirror 照護之鏡聚焦女性照護員 VR 訓練，結合醫療教育需求、互動技術與規格化流程，打造可重複驗證的照護教學體驗。"
+  ogImage={siteConfig.defaultOgImage}
+  ogImages={siteConfig.socialImages.default}
+  canonical="/about">
+  <section class="section-space">
+    <div class="page-shell">
+      <SectionTitle
+        eyebrow="關於我們"
+        title="我們關注的不只是 VR 展示，而是照護教學真正能否被落地使用"
+        description="CareMirror 照護之鏡的定位是將照護流程、教學需求與互動技術整合成可被實際教學、評估與延展的產品。" />
+      <div class="mt-10 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+        <article class="panel p-8">
+          <h3 class="text-2xl font-semibold text-white">為何投入長照與醫療 VR</h3>
+          <p class="mt-5 text-base leading-8 text-muted">
+            照護訓練的難點在於，很多流程既高度敏感，又需要大量重複示範與反覆練習。單靠口述與觀摩，難以保證學習一致性；
+            單靠紙本 SOP，也難以承載情境細節與錯誤回饋。VR 的價值不在於沉浸本身，而在於它能承接標準流程、判定邏輯與可追溯證據。
+          </p>
+          <p class="mt-5 text-base leading-8 text-muted">
+            我們希望把這件事做成正式產品能力，而不是單次專案展示，因此從第一天起就以內容可維護、邏輯可驗證與日後可擴充為前提設計整體架構。
+          </p>
+        </article>
+        <article class="panel p-8">
+          <h3 class="text-2xl font-semibold text-white">團隊能力</h3>
+          <ul class="mt-5 space-y-4 text-sm leading-7 text-muted">
+            {focuses.map((item) => <li class="rounded-2xl border border-white/10 bg-white/5 p-4">{item}</li>)}
+          </ul>
+        </article>
+      </div>
+
+      <div class="mt-6 panel grid gap-6 p-8 lg:grid-cols-[1.15fr_0.85fr]">
+        <div>
+          <span class="section-kicker">延伸閱讀</span>
+          <h3 class="mt-5 text-2xl font-semibold text-white">院方版白皮書已上線，可直接閱讀完整系統定位與導入建議</h3>
+          <p class="mt-4 text-base leading-8 text-muted">
+            如果你需要的不只是產品介紹，而是更完整的院方說明版本，白皮書頁已整理好訓練痛點、示範情境、驗證邊界與三階段導入建議。
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-4">
+          <a class="btn-primary" href="/white-paper">閱讀院方白皮書</a>
+          <a class="btn-secondary" href="/product">查看產品頁</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

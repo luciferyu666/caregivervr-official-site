@@ -1,0 +1,75 @@
+@theme {
+  --color-brand-50: var(--brand-blue-50);
+  --color-brand-100: var(--brand-blue-100);
+  --color-brand-200: var(--brand-blue-200);
+  --color-brand-300: var(--brand-blue-300);
+  --color-brand-400: var(--brand-blue-400);
+  --color-brand-500: var(--brand-blue-500);
+  --color-brand-600: var(--brand-blue-600);
+  --color-brand-700: var(--brand-blue-700);
+  --color-brand-800: var(--brand-blue-800);
+  --color-brand-900: var(--brand-blue-900);
+  --color-mint-400: var(--brand-cyan-400);
+  --color-mint-500: var(--brand-cyan-500);
+  --font-sans: var(--font-body);
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+
+    --brand-blue-50: #f4f8ff;
+    --brand-blue-100: #e2efff;
+    --brand-blue-200: #cfe4ff;
+    --brand-blue-300: #9fd0ff;
+    --brand-blue-400: #56a8ff;
+    --brand-blue-500: #1c77c8;
+    --brand-blue-600: #145791;
+    --brand-blue-700: #103d67;
+    --brand-blue-800: #0c2948;
+    --brand-blue-900: #081b30;
+
+    --brand-cyan-300: #93eff5;
+    --brand-cyan-400: #45c7d6;
+    --brand-cyan-500: #0fa6ba;
+
+    --neutral-100: #f5f9ff;
+    --neutral-200: #d7e4f3;
+    --neutral-300: #9db1c7;
+    --neutral-700: #284967;
+    --neutral-900: #07101d;
+    --neutral-950: #030916;
+
+    --color-background: #06111f;
+    --color-surface: rgba(11, 23, 39, 0.86);
+    --color-surface-alt: rgba(16, 32, 54, 0.82);
+    --color-surface-elevated: rgba(17, 35, 58, 0.94);
+    --color-text-primary: var(--neutral-100);
+    --color-text-secondary: var(--neutral-200);
+    --color-text-muted: var(--neutral-300);
+    --color-border: rgba(147, 188, 255, 0.16);
+    --color-primary: var(--brand-blue-400);
+    --color-primary-hover: #8cc8ff;
+    --color-accent: var(--brand-cyan-400);
+    --color-success: #2ed3a7;
+    --color-warning: #f3c869;
+    --color-danger: #f27586;
+    --color-info: #7cb9ff;
+
+    --color-primary-soft: rgba(86, 168, 255, 0.16);
+    --color-accent-soft: rgba(69, 199, 214, 0.14);
+    --color-surface-soft: rgba(255, 255, 255, 0.05);
+    --color-surface-soft-strong: rgba(255, 255, 255, 0.08);
+    --color-panel-border-strong: rgba(207, 228, 255, 0.14);
+    --shadow-primary: 0 18px 44px rgba(28, 119, 200, 0.26);
+    --shadow-panel: 0 24px 80px rgba(2, 8, 23, 0.36);
+
+    --page-bg:
+      radial-gradient(circle at top, rgba(86, 168, 255, 0.18), transparent 32%),
+      radial-gradient(circle at 85% 12%, rgba(69, 199, 214, 0.16), transparent 24%),
+      linear-gradient(180deg, #06111f 0%, #08182d 42%, #030916 100%);
+    --panel-bg: var(--color-surface);
+    --panel-border: var(--color-border);
+    --muted-text: var(--color-text-muted);
+  }
+}

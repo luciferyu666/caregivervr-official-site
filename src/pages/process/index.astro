@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionTitle from '../../components/common/SectionTitle.astro';
+import { siteConfig } from '../../data/site';
+
+const posts = (await getCollection('process', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<BaseLayout
+  title="開發過程｜CareMirror 照護之鏡"
+  description="透過 Astro content collections 管理 CareMirror 照護之鏡的開發紀錄、階段摘要與後續演進方向。"
+  ogImage={siteConfig.defaultOgImage}
+  ogImages={siteConfig.socialImages.default}
+  canonical="/process">
+  <section class="section-space">
+    <div class="page-shell">
+      <SectionTitle
+        eyebrow="開發過程"
+        title="記錄產品與官網的開發脈絡"
+        description="這裡會收錄專案啟動、內容整理、技術驗證與網站迭代等開發文章。" />
+      <div class="mt-10 grid gap-6">
+        {
+          posts.map((post) => (
+            <article class="panel p-8">
+              <div class="flex flex-wrap items-center gap-3 text-sm text-muted">
+                <span class="info-chip">{post.data.stage}</span>
+                <time datetime={post.data.date.toISOString()}>
+                  {post.data.date.toLocaleDateString('zh-TW', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+              </div>
+              <h2 class="mt-5 text-2xl font-semibold text-white">{post.data.title}</h2>
+              <p class="mt-4 text-sm leading-7 text-muted">{post.data.summary}</p>
+              <a class="mt-6 inline-flex text-sm font-semibold text-brand-200" href={`/process/${post.id}/`}>
+                閱讀文章
+                <span class="ml-2 text-lg">→</span>
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

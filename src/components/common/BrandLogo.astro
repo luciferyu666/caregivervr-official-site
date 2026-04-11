@@ -1,0 +1,30 @@
+---
+import { brandConfig } from '../../data/brand';
+import logoFull from '../../assets/brand/logo-full.svg';
+import logoMark from '../../assets/brand/logo-mark.svg';
+import logoWordmark from '../../assets/brand/logo-wordmark.svg';
+
+interface Props {
+  variant?: 'full' | 'mark' | 'wordmark';
+  class?: string;
+}
+
+const { variant = 'full', class: className = '' } = Astro.props as Props;
+
+const logoByVariant = {
+  full: logoFull,
+  mark: logoMark,
+  wordmark: logoWordmark,
+} as const;
+
+const altByVariant = {
+  full: `${brandConfig.brandLockup} 品牌識別`,
+  mark: `${brandConfig.brandLockup} 標誌圖形`,
+  wordmark: `${brandConfig.brandLockup} 文字標誌`,
+} as const;
+
+const selectedLogo = logoByVariant[variant];
+const alt = altByVariant[variant];
+---
+
+<img src={selectedLogo.src} alt={alt} class={className} loading="eager" decoding="async" />

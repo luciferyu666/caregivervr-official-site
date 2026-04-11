@@ -1,0 +1,49 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">CareMirror 首頁方形 OG 圖</title>
+  <desc id="desc">CareMirror 照護之鏡首頁方形社群分享圖，呈現品牌主標、中文品牌與首頁展示模組。</desc>
+  <rect width="1200" height="1200" fill="#05111F"/>
+  <rect width="1200" height="1200" fill="url(#bg)"/>
+  <circle cx="920" cy="164" r="250" fill="url(#glowA)"/>
+  <circle cx="242" cy="104" r="240" fill="url(#glowB)"/>
+  <rect x="84" y="84" width="1032" height="1032" rx="48" fill="rgba(9, 20, 36, 0.9)" stroke="rgba(207,228,255,0.14)"/>
+  <text x="136" y="164" fill="#93EFF5" font-size="20" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">OFFICIAL WEBSITE</text>
+  <text x="136" y="280" fill="#F5F9FF" font-size="80" font-weight="700" font-family="'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">CareMirror</text>
+  <text x="136" y="352" fill="#CFE4FF" font-size="36" font-weight="600" font-family="'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">照護之鏡</text>
+  <text x="136" y="430" fill="#9DB1C7" font-size="30" font-weight="500" font-family="'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">從品牌介紹、產品模組、技術能力到應用場景，建立正式展示與對外溝通的網站基礎。</text>
+  <g>
+    <rect x="136" y="516" width="204" height="58" rx="29" fill="rgba(86, 168, 255, 0.18)"/>
+    <text x="238" y="553" text-anchor="middle" fill="#F5F9FF" font-size="20" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">查看產品</text>
+    <rect x="356" y="516" width="228" height="58" rx="29" fill="rgba(255,255,255,0.05)" stroke="rgba(207,228,255,0.1)"/>
+    <text x="470" y="553" text-anchor="middle" fill="#D7E4F3" font-size="20" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">預約 Demo</text>
+  </g>
+  <g>
+    <rect x="136" y="662" width="928" height="318" rx="38" fill="rgba(255,255,255,0.04)" stroke="rgba(207,228,255,0.1)"/>
+    <rect x="172" y="698" width="432" height="146" rx="28" fill="rgba(10, 23, 40, 0.84)" stroke="rgba(86,168,255,0.18)"/>
+    <path d="M206 752H546" stroke="#CFE4FF" stroke-width="8" stroke-linecap="round"/>
+    <path d="M206 784H500" stroke="#45C7D6" stroke-width="8" stroke-linecap="round" opacity="0.92"/>
+    <rect x="206" y="816" width="120" height="18" rx="9" fill="#56A8FF" opacity="0.78"/>
+    <rect x="344" y="816" width="88" height="18" rx="9" fill="#93EFF5" opacity="0.72"/>
+    <rect x="648" y="698" width="380" height="100" rx="28" fill="rgba(10, 23, 40, 0.84)" stroke="rgba(69,199,214,0.2)"/>
+    <circle cx="708" cy="748" r="20" fill="#56A8FF"/>
+    <circle cx="764" cy="748" r="20" fill="#45C7D6"/>
+    <circle cx="820" cy="748" r="20" fill="#93EFF5"/>
+    <path d="M880 728H988" stroke="#CFE4FF" stroke-width="8" stroke-linecap="round"/>
+    <path d="M880 760H956" stroke="#45C7D6" stroke-width="8" stroke-linecap="round"/>
+    <text x="172" y="906" fill="#D7E4F3" font-size="18" font-weight="700" font-family="'Inter', 'Noto Sans TC', sans-serif">首頁主視覺、產品預覽、CTA 與品牌語氣需要在同一個畫面中保持一致。</text>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="164" y1="52" x2="1008" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07121E"/>
+      <stop offset="0.6" stop-color="#0A1A32"/>
+      <stop offset="1" stop-color="#030916"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(920 164) rotate(90) scale(250)">
+      <stop stop-color="#45C7D6" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#45C7D6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(242 104) rotate(90) scale(240)">
+      <stop stop-color="#56A8FF" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#56A8FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

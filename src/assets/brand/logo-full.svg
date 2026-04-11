@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 104">
+  <defs>
+    <linearGradient id="cgvr-full" x1="16%" x2="82%" y1="12%" y2="88%">
+      <stop offset="0%" stop-color="#68b4ff" />
+      <stop offset="100%" stop-color="#1fc7b3" />
+    </linearGradient>
+  </defs>
+  <rect width="520" height="104" rx="24" fill="none" />
+  <rect x="0" y="4" width="96" height="96" rx="24" fill="#071525" />
+  <path d="M28 20h20c17.673 0 32 14.327 32 32S65.673 84 48 84H28V20Z" fill="url(#cgvr-full)" />
+  <path d="M46 34h8c9.941 0 18 8.059 18 18s-8.059 18-18 18h-8V34Z" fill="#071525" opacity=".92" />
+  <text x="124" y="40" fill="#dceaff" font-size="18" font-family="Noto Sans TC, PingFang TC, Microsoft JhengHei, sans-serif" letter-spacing="6">
+    CAREMIRROR
+  </text>
+  <text x="124" y="78" fill="#ffffff" font-size="36" font-family="Noto Sans TC, PingFang TC, Microsoft JhengHei, sans-serif" font-weight="700">
+    照護之鏡
+  </text>
+</svg>

@@ -1,0 +1,47 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../data/site';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('process', ({ data }) => !data.draft);
+  return entries.map((entry) => ({
+    params: { id: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout
+  title={`${entry.data.title}｜開發過程`}
+  description={entry.data.summary}
+  ogImage={siteConfig.defaultOgImage}
+  ogImages={siteConfig.socialImages.default}
+  canonical={`/process/${entry.id}/`}>
+  <section class="section-space">
+    <div class="page-shell max-w-4xl">
+      <div class="panel p-8 sm:p-10">
+        <div class="flex flex-wrap items-center gap-3 text-sm text-muted">
+          <span class="info-chip">{entry.data.stage}</span>
+          <time datetime={entry.data.date.toISOString()}>
+            {entry.data.date.toLocaleDateString('zh-TW', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </time>
+        </div>
+        <h1 class="mt-6 text-4xl font-semibold text-white">{entry.data.title}</h1>
+        <p class="mt-5 text-lg leading-8 text-muted">{entry.data.summary}</p>
+        <div class="mt-10 border-t border-white/8 pt-8">
+          <article class="rich-text">
+            <Content />
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

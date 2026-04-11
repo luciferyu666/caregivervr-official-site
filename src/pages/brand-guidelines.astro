@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionTitle from '../components/common/SectionTitle.astro';
+import BrandLogo from '../components/common/BrandLogo.astro';
+import { brandConfig } from '../data/brand';
+import { siteConfig } from '../data/site';
+
+const fontRoles = Object.values(brandConfig.fonts);
+const colorGroups = [
+  { title: 'Primary', items: brandConfig.palette.primary },
+  { title: 'Secondary', items: brandConfig.palette.secondary },
+  { title: 'Accent', items: brandConfig.palette.accent },
+  { title: 'Neutral', items: brandConfig.palette.neutral },
+  { title: 'Semantic', items: brandConfig.semanticColors },
+  { title: 'Surface', items: brandConfig.surfaceTokens },
+];
+
+const ogGroups = [
+  { title: 'Default OG', images: brandConfig.ogSpecs.default },
+  { title: 'Home OG', images: brandConfig.ogSpecs.home },
+  { title: 'Product OG', images: brandConfig.ogSpecs.product },
+];
+---
+
+<BaseLayout
+  title="品牌規範預覽"
+  description="CareMirror 照護之鏡品牌字體、色票、OG 圖與核心元件的內部預覽頁。"
+  ogImage={siteConfig.defaultOgImage}
+  ogImages={siteConfig.socialImages.default}
+  canonical="/brand-guidelines">
+  <section class="section-space">
+    <div class="page-shell space-y-16">
+      <SectionTitle
+        eyebrow="Brand System"
+        title="CareMirror／照護之鏡 品牌系統預覽"
+        description="此頁面用於快速檢查 logo、字體角色、色票 token、核心元件與 OG 圖輸出是否維持一致。" />
+
+      <section class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <article class="panel p-8">
+          <h2 class="text-2xl font-semibold text-white">Logo 系統</h2>
+          <div class="mt-6 space-y-5">
+            <div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
+              <p class="font-ui text-xs uppercase tracking-[0.2em] text-brand-100">Full</p>
+              <div class="mt-4">
+                <BrandLogo variant="full" class="h-14 w-auto" />
+              </div>
+            </div>
+            <div class="grid gap-5 sm:grid-cols-2">
+              <div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
+                <p class="font-ui text-xs uppercase tracking-[0.2em] text-brand-100">Mark</p>
+                <div class="mt-4">
+                  <BrandLogo variant="mark" class="h-14 w-14" />
+                </div>
+              </div>
+              <div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
+                <p class="font-ui text-xs uppercase tracking-[0.2em] text-brand-100">Wordmark</p>
+                <div class="mt-4">
+                  <BrandLogo variant="wordmark" class="h-10 w-auto" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel p-8">
+          <h2 class="text-2xl font-semibold text-white">Typography Scale</h2>
+          <div class="mt-6 space-y-7">
+            <div>
+              <p class="font-ui text-xs uppercase tracking-[0.2em] text-brand-100">Display</p>
+              <p class="font-display mt-3 text-5xl font-semibold text-white">可信、清楚、可延伸的照護品牌語言</p>
+            </div>
+            <div>
+              <p class="font-ui text-xs uppercase tracking-[0.2em] text-brand-100">Body</p>
+              <p class="mt-3 text-base leading-8 text-muted">
+                CareMirror 照護之鏡以女性照護員 VR 訓練系統為核心，將流程教學、事件判定與教學證據整合為正式產品敘事。
+              </p>
+            </div>
+            <div>
+              <p class="font-ui text-xs uppercase tracking-[0.2em] text-brand-100">UI</p>
+              <div class="mt-3 flex flex-wrap gap-3">
+                <span class="info-chip">UI Chip</span>
+                <a class="btn-primary" href="/product">Primary CTA</a>
+                <a class="btn-secondary" href="/technology">Secondary CTA</a>
+              </div>
+            </div>
+            <div>
+              <p class="font-ui text-xs uppercase tracking-[0.2em] text-brand-100">Mono</p>
+              <p class="font-mono-role mt-3 text-sm text-brand-100">OG / Landscape / 1200x630 / Meta Quest 3 / static-export</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <SectionTitle
+          eyebrow="Tokens"
+          title="品牌色票與 semantic token"
+          description="顏色分成 raw palette 與 semantic token。畫面上的元件應優先使用 semantic token，不直接把 HEX 寫進元件。" />
+        <div class="mt-10 space-y-8">
+          {
+            colorGroups.map((group) => (
+              <article class="panel p-8">
+                <h3 class="text-2xl font-semibold text-white">{group.title}</h3>
+                <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                  {group.items.map((item) => (
+                    <div class="rounded-3xl border border-white/10 bg-slate-950/55 p-5">
+                      <div class="flex items-center gap-4">
+                        <div
+                          class="h-14 w-14 rounded-2xl border border-white/10"
+                          style={`background:${item.hex};`}></div>
+                        <div>
+                          <p class="font-ui text-sm font-semibold text-white">{item.token}</p>
+                          <p class="font-mono-role mt-1 text-xs text-brand-100">{item.hex}</p>
+                        </div>
+                      </div>
+                      <p class="mt-4 text-sm leading-7 text-muted">{item.usage}</p>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+        <article class="panel p-8">
+          <h2 class="text-2xl font-semibold text-white">元件預覽</h2>
+          <div class="mt-6 grid gap-6">
+            <div class="rounded-3xl border border-white/10 bg-[var(--color-surface-alt)] p-6">
+              <span class="section-kicker">Section Kicker</span>
+              <h3 class="mt-5 text-3xl font-semibold text-white">正式官網卡片與按鈕層級</h3>
+              <p class="mt-4 text-sm leading-7 text-muted">
+                卡片背景、按鈕狀態與資訊 chip 應使用 brand token，維持展示一致性與後續可維護性。
+              </p>
+              <div class="mt-6 flex flex-wrap gap-3">
+                <a href="/contact" class="btn-primary">預約 Demo</a>
+                <a href="/process" class="btn-secondary">閱讀開發過程</a>
+                <span class="info-chip">Static First</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel p-8">
+          <h2 class="text-2xl font-semibold text-white">Favicon 與品牌圖示</h2>
+          <div class="mt-6 flex items-start gap-6">
+            <div class="rounded-3xl border border-white/10 bg-slate-950/65 p-5">
+              <img src={brandConfig.faviconPath} alt="CareMirror favicon" class="h-16 w-16" />
+            </div>
+            <div class="space-y-4 text-sm leading-7 text-muted">
+              <p>favicon 使用與 logo-mark 相同的核心圖形語言，方便在分頁、收藏夾與分享縮圖中保持一致辨識。</p>
+              <p>正式替換時，請優先沿用目前 mark 的幾何結構與主色比例，避免切成只剩文字的 favicon。</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <SectionTitle
+          eyebrow="Open Graph"
+          title="社群分享圖輸出規格"
+          description="目前已建立 default、home、product 三組 OG，並各自提供 landscape 與 square 兩種尺寸，作為頁面分享的正式來源檔。" />
+        <div class="mt-10 space-y-8">
+          {
+            ogGroups.map((group) => (
+              <article class="panel p-8">
+                <h3 class="text-2xl font-semibold text-white">{group.title}</h3>
+                <div class="mt-6 grid gap-5 lg:grid-cols-2">
+                  {group.images.map((image) => (
+                    <div class="rounded-3xl border border-white/10 bg-slate-950/55 p-5">
+                      <img src={image.url} alt={image.alt} class="w-full rounded-2xl border border-white/10 bg-slate-950/60" />
+                      <div class="mt-4 flex items-center justify-between gap-4">
+                        <p class="font-ui text-sm font-semibold text-white">{image.alt}</p>
+                        <p class="font-mono-role text-xs text-brand-100">{image.width}×{image.height}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="panel p-8">
+        <h2 class="text-2xl font-semibold text-white">字體角色與替換方式</h2>
+        <div class="mt-6 grid gap-5 lg:grid-cols-2">
+          {fontRoles.map((role) => (
+            <div class="rounded-3xl border border-white/10 bg-slate-950/55 p-5">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="font-ui text-sm uppercase tracking-[0.18em] text-brand-100">{role.label}</p>
+                  <p class="mt-2 text-xl font-semibold text-white">{role.cssVar}</p>
+                </div>
+                <p class="font-mono-role text-xs text-brand-100">{role.key}</p>
+              </div>
+              <p class="mt-4 text-sm leading-7 text-muted">{role.usage}</p>
+              <p class="font-mono-role mt-4 text-xs leading-6 text-brand-100">{role.stack}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </section>
+</BaseLayout>

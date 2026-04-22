@@ -217,6 +217,45 @@ const firstYearRevenueModels = [
   },
 ];
 
+const pilotPlanFacts = [
+  { value: '8-12 週', label: '建議執行週期' },
+  { value: '1+1', label: '1 個病房 + 1 個院後單位' },
+  { value: '1-2', label: '先導入模組數' },
+  { value: '結案報告', label: '形成院內決策證據' },
+];
+
+const pilotPlanSteps = [
+  {
+    title: '展示確認',
+    description:
+      '先安排 60-90 分鐘院方展示，讓護理教育、長照銜接、資訊或創新窗口共同確認系統定位與示範邊界。',
+  },
+  {
+    title: 'Pilot 啟動',
+    description:
+      '確認場域、參與角色、預計人數、裝置需求、模組範圍與院內 SOP 對齊方式，避免 pilot 變成無邊界客製案。',
+  },
+  {
+    title: '訓練執行',
+    description:
+      '進行導師訓練、學員演練、流程觀察與問題紀錄，將使用情況整理成可回顧的教學證據。',
+  },
+  {
+    title: '結案轉導入',
+    description:
+      '用結案報告討論是否進入年訂閱、模組擴充、課程合作或下一個院區/單位導入，讓展示自然銜接收案。',
+  },
+];
+
+const pilotIntakeItems = [
+  '主要聯絡窗口與決策單位',
+  '預計示教場域與參與單位',
+  '優先導入的照護模組',
+  '預計參與人數與角色',
+  '院內 SOP 或教案版本',
+  '是否需要 Quest 實機試教',
+];
+
 const deliverables = [
   'Unity 專案與互動邏輯內容',
   '指定示範場景',
@@ -235,6 +274,7 @@ const anchors = [
   { href: '#validation', label: '驗證範圍' },
   { href: '#rollout', label: '導入建議' },
   { href: '#productization', label: '產品化策略' },
+  { href: '#pilot-plan', label: 'Pilot 合作方案' },
   { href: '#partnership', label: '合作交付' },
 ];
 ---
@@ -543,6 +583,63 @@ const anchors = [
                   </article>
                 ))
               }
+            </div>
+          </div>
+        </article>
+
+        <article id="pilot-plan" class="panel overflow-hidden p-8 lg:p-10">
+          <div class="grid gap-10 xl:grid-cols-[0.92fr_1.08fr]">
+            <div>
+              <span class="section-kicker">Pilot 合作方案</span>
+              <h2 class="mt-5 text-3xl font-semibold text-white sm:text-4xl">
+                從院方閱讀，直接進入可執行的先導導入流程
+              </h2>
+              <p class="mt-5 text-base leading-8 text-muted">
+                Pilot 的目的不是做免費試用，而是用有限範圍建立院內決策證據。建議先鎖定一個病房與一個院後單位，
+                用 1-2 個模組驗證示教、演練、回饋與設備管理是否能形成可持續的教學流程。
+              </p>
+              <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                {
+                  pilotPlanFacts.map((item) => (
+                    <div class="rounded-[1.5rem] border border-brand-200/10 bg-brand-400/8 p-5">
+                      <p class="text-2xl font-semibold text-white">{item.value}</p>
+                      <p class="mt-2 text-sm leading-7 text-muted">{item.label}</p>
+                    </div>
+                  ))
+                }
+              </div>
+              <div class="mt-8 flex flex-wrap gap-4">
+                <a class="btn-primary" href="/contact#demo">預約 Pilot 討論</a>
+                <a class="btn-secondary" href="/product">先看產品畫面</a>
+              </div>
+            </div>
+
+            <div class="space-y-5">
+              {
+                pilotPlanSteps.map((item, index) => (
+                  <article class="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 p-6 pl-20">
+                    <div class="absolute left-6 top-6 flex h-10 w-10 items-center justify-center rounded-2xl bg-mint-500/14 text-base font-semibold text-mint-400">
+                      {index + 1}
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white">{item.title}</h3>
+                    <p class="mt-4 text-sm leading-7 text-muted">{item.description}</p>
+                  </article>
+                ))
+              }
+            </div>
+          </div>
+
+          <div class="mt-10 rounded-[1.75rem] border border-white/10 bg-slate-950/40 p-6">
+            <div class="grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
+              <div>
+                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-100">收案前需確認資料</p>
+                <p class="mt-4 text-sm leading-7 text-muted">
+                  院方若準備進入 pilot 討論，可先整理以下資訊，讓第一次會議就能進入範圍、時程與驗收方式確認。
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                {pilotIntakeItems.map((item) => <span class="info-chip">{item}</span>)}
+              </div>
             </div>
           </div>
         </article>

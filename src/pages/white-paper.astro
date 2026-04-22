@@ -176,6 +176,47 @@ const rolloutPhases = [
   },
 ];
 
+const productizationLayers = [
+  {
+    title: '70-80% 標準化',
+    description:
+      '場景流程、評分框架、報表結構與後台欄位先維持一致，讓同一套模組能被多個院所重複導入，而不是每次重新開發。',
+  },
+  {
+    title: '20-30% 可參數化',
+    description:
+      '保留院方可調整的話術、評分門檻、流程順序、模組啟用與語系，讓內容可符合院內教學習慣，但不破壞核心產品架構。',
+  },
+  {
+    title: '資料驅動規則',
+    description:
+      '以 ScriptableObject 承接內容編輯與開發期資料整理，執行期規則則由 JSON 或遠端設定承接，降低日後調整 SOP 與提示時的重建成本。',
+  },
+];
+
+const firstYearRevenueModels = [
+  {
+    title: '付費 pilot',
+    description:
+      '建議以 8-12 週、1 個病房加 1 個院後單位、1-2 個模組為範圍，包含導師訓練與結案報告。重點是累積院內證據，而不是免費 PoC。',
+  },
+  {
+    title: '年訂閱授權',
+    description:
+      'pilot 後轉成按病房、院區或點位的年費授權，讓版本維護、bug 修正與模組更新有穩定資源支撐。',
+  },
+  {
+    title: '客製模組費',
+    description:
+      '只針對標準產品外的新模組收費，例如失智溝通、移位搬運或感染控制深化，不把一般文案與報表微調變成客製開發。',
+  },
+  {
+    title: '課程合作分潤',
+    description:
+      '由醫院教育中心、公協會或既有辦訓單位負責開課與採認流程，CareMirror 提供 VR 情境模組與實作評量，降低個人開發者自行辦訓風險。',
+  },
+];
+
 const deliverables = [
   'Unity 專案與互動邏輯內容',
   '指定示範場景',
@@ -193,6 +234,8 @@ const anchors = [
   { href: '#scenarios', label: '示範情境' },
   { href: '#validation', label: '驗證範圍' },
   { href: '#rollout', label: '導入建議' },
+  { href: '#productization', label: '產品化策略' },
+  { href: '#partnership', label: '合作交付' },
 ];
 ---
 
@@ -452,7 +495,59 @@ const anchors = [
           </div>
         </article>
 
-        <article class="panel overflow-hidden p-8 lg:p-10">
+        <article id="productization" class="panel overflow-hidden p-8 lg:p-10">
+          <div class="grid gap-8 xl:grid-cols-[0.95fr_1.05fr]">
+            <div>
+              <span class="section-kicker">產品化策略</span>
+              <h2 class="mt-5 text-3xl font-semibold text-white sm:text-4xl">
+                先把 1 套模組做成 10 家能用，不替 1 家做 10 套
+              </h2>
+              <p class="mt-5 text-base leading-8 text-muted">
+                對個人開發者而言，最大的商業風險不是做不出系統，而是被每家院所不同的需求拖進重客製開發。
+                CareMirror 的產品策略，是先建立可重複導入的標準骨架，再把院方差異留在可控的參數層。
+              </p>
+              <div class="mt-8 rounded-[1.75rem] border border-brand-200/10 bg-brand-400/8 p-6">
+                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-100">對外說法</p>
+                <p class="mt-4 text-base leading-8 text-slate-100">
+                  我們不是為每一家醫院重做一套系統，而是提供一套可標準化導入、可依院內教學規則調整的照護訓練平台。
+                </p>
+              </div>
+            </div>
+
+            <div class="grid gap-4">
+              {
+                productizationLayers.map((item, index) => (
+                  <article class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+                    <p class="text-sm uppercase tracking-[0.18em] text-brand-100">Layer 0{index + 1}</p>
+                    <h3 class="mt-4 text-2xl font-semibold text-white">{item.title}</h3>
+                    <p class="mt-4 text-sm leading-7 text-muted">{item.description}</p>
+                  </article>
+                ))
+              }
+            </div>
+          </div>
+
+          <div class="mt-10 border-t border-white/10 pt-10">
+            <span class="section-kicker">第一年商業模式</span>
+            <h3 class="mt-5 text-2xl font-semibold text-white sm:text-3xl">第一年只保留四種收入來源，避免服務範圍失控</h3>
+            <p class="mt-4 max-w-3xl text-base leading-8 text-muted">
+              此段為合作模式建議，不等同正式報價。實際價格與採認方式仍需依院方導入範圍、設備配置、課程合作對象與驗收條件另行確認。
+            </p>
+            <div class="mt-8 grid gap-6 md:grid-cols-2">
+              {
+                firstYearRevenueModels.map((item, index) => (
+                  <article class="rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] p-6">
+                    <p class="text-sm uppercase tracking-[0.18em] text-mint-400">Model 0{index + 1}</p>
+                    <h4 class="mt-4 text-2xl font-semibold text-white">{item.title}</h4>
+                    <p class="mt-4 text-sm leading-7 text-muted">{item.description}</p>
+                  </article>
+                ))
+              }
+            </div>
+          </div>
+        </article>
+
+        <article id="partnership" class="panel overflow-hidden p-8 lg:p-10">
           <div class="grid gap-8 lg:grid-cols-[1.08fr_0.92fr]">
             <div>
               <span class="section-kicker">合作與交付</span>
